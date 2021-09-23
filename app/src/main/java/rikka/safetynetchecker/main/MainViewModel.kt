@@ -12,9 +12,7 @@ import rikka.safetynetchecker.attest.AttestationException
 import rikka.safetynetchecker.attest.AttestationStatement
 import rikka.safetynetchecker.attest.OfflineVerify
 import rikka.safetynetchecker.util.ResultOf
-import java.io.ByteArrayOutputStream
-import java.io.IOException
-import java.security.SecureRandom
+import java.time.OffsetDateTime
 import java.util.*
 
 
@@ -22,39 +20,30 @@ class MainViewModel : ViewModel() {
 
     val result: MutableState<ResultOf<AttestationStatement>> = mutableStateOf(ResultOf.Initial)
 
-    private val random: Random = SecureRandom()
-
     private val fingerprint = "${Build.BRAND}/${Build.PRODUCT}/${Build.DEVICE}:" +
             "${Build.VERSION.RELEASE}/${Build.ID}/${Build.VERSION.INCREMENTAL}:" +
             "${Build.TYPE}/${Build.TAGS}"
 
-
-    private fun getNonce(): ByteArray {
-        val byteStream = ByteArrayOutputStream()
-        val bytes = ByteArray(24)
-        random.nextBytes(bytes)
-        try {
-            byteStream.write(bytes)
-            byteStream.write(System.currentTimeMillis().toString().toByteArray())
-            byteStream.write(fingerprint.toByteArray())
-            byteStream.write(Build.VERSION.SDK_INT.toString().toByteArray())
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                byteStream.write(Build.VERSION.SECURITY_PATCH.toString().toByteArray())
-            }
-        } catch (e: IOException) {
-            throw IllegalStateException("Unable to generate nonce")
+    private fun getNonce(): String {
+        var s = "${UUID.randomUUID()}\n" +
+                "${OffsetDateTime.now()}\n" +
+                "${fingerprint}\n" +
+                "${Build.VERSION.SDK_INT}\n";
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            s += "${Build.VERSION.SECURITY_PATCH}\n"
         }
-
-        return byteStream.toByteArray()
+        return s
     }
 
     fun checkSafetyNet(activity: Activity) {
         result.value = ResultOf.Loading
-
-        SafetyNet.getClient(activity).attest(getNonce(), BuildConfig.API_KEY)
+        val nonce = getNonce()
+        SafetyNet.getClient(activity).attest(nonce.toByteArray(), BuildConfig.API_KEY)
             .addOnSuccessListener(activity) {
                 try {
-                    result.value = (ResultOf.Success(OfflineVerify.process(it.jwsResult)))
+                    val statement = OfflineVerify.process(it.jwsResult)
+                    statement.originalNonce = nonce
+                    result.value = (ResultOf.Success(statement))
                 } catch (e: AttestationException) {
                     Log.w(TAG, "OfflineVerify: ", e)
                     result.value = (ResultOf.Failure(e))

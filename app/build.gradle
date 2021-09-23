@@ -1,3 +1,6 @@
+import com.android.ide.common.signing.KeystoreHelper
+import org.apache.commons.codec.digest.DigestUtils
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -9,14 +12,6 @@ properties.load(project.rootProject.file("local.properties").newDataInputStream(
 android {
     compileSdk 31
     buildToolsVersion '31.0.0'
-    defaultConfig {
-        applicationId "rikka.safetynetchecker"
-        minSdk 21
-        targetSdk 31
-        versionCode 1
-        versionName "1.0.0"
-        buildConfigField "String", "API_KEY", "\"${properties.getProperty("apiKey", "")}\""
-    }
     signingConfigs {
         sign {
             storeFile properties.getProperty("storeFile") != null ? file(properties.getProperty("storeFile")) : android.signingConfigs.debug.storeFile
@@ -25,6 +20,24 @@ android {
             keyPassword properties.getProperty("keyPassword", android.signingConfigs.debug.keyPassword)
         }
     }
+    defaultConfig {
+        applicationId "rikka.safetynetchecker"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0.0"
+        buildConfigField "String", "API_KEY", "\"${properties.getProperty("apiKey", "")}\""
+        buildConfigField "String", "SAMPLE", "\"${property("sampleResult")}\""
+        def info = KeystoreHelper.getCertificateInfo(
+                signingConfigs.sign.storeType,
+                signingConfigs.sign.storeFile,
+                signingConfigs.sign.storePassword,
+                signingConfigs.sign.keyPassword,
+                signingConfigs.sign.keyAlias
+        )
+        def digest = Base64.encoder.encodeToString(DigestUtils.sha256(info.certificate.encoded))
+        buildConfigField "String", "certificateDigest", "\"$digest\""
+    }
     buildTypes {
         debug {
             signingConfig signingConfigs.sign
@@ -32,12 +45,14 @@ android {
         release {
             signingConfig signingConfigs.sign
             minifyEnabled true
+            shrinkResources true
             proguardFiles 'proguard-rules.pro'
         }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
+        coreLibraryDesugaringEnabled true
     }
     kotlinOptions {
         jvmTarget = '11'
@@ -87,4 +102,11 @@ dependencies {
 
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.material:material-icons-extended:$compose_version"
+
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+}
+
+configurations.all {
+    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk7'
+    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
 }

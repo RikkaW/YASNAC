@@ -6,7 +6,8 @@ import com.google.api.client.json.webtoken.JsonWebSignature;
 import com.google.api.client.util.Key;
 import com.google.common.io.BaseEncoding;
 
-import java.util.ArrayList;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -63,8 +64,10 @@ public class AttestationStatement extends JsonWebSignature.Payload {
     @Key
     private String evaluationType;
 
-    public byte[] getNonce() {
-        return BaseEncoding.base64().decode(nonce);
+    private String originalNonce;
+
+    public String getNonce() {
+        return new String(BaseEncoding.base64().decode(nonce), StandardCharsets.UTF_8);
     }
 
     public long getTimestampMs() {
@@ -75,17 +78,12 @@ public class AttestationStatement extends JsonWebSignature.Payload {
         return String.valueOf(apkPackageName);
     }
 
-    public byte[] getApkDigestSha256() {
-        if (apkDigestSha256 == null) return null;
-        return BaseEncoding.base64().decode(apkDigestSha256);
+    public String getApkDigestSha256() {
+        return String.valueOf(apkDigestSha256);
     }
 
-    public List<byte[]> getApkCertificateDigestSha256() {
-        List<byte[]> certs = new ArrayList<>(apkCertificateDigestSha256.length);
-        for (String s : apkCertificateDigestSha256) {
-            certs.add(BaseEncoding.base64().decode(s));
-        }
-        return certs;
+    public List<String> getApkCertificateDigestSha256() {
+        return Arrays.asList(apkCertificateDigestSha256);
     }
 
     public boolean isCtsProfileMatch() {
@@ -98,5 +96,13 @@ public class AttestationStatement extends JsonWebSignature.Payload {
 
     public boolean hasHardwareBackedEvaluationType() {
         return evaluationType.contains("HARDWARE_BACKED");
+    }
+
+    public void setOriginalNonce(String originalNonce) {
+        this.originalNonce = originalNonce;
+    }
+
+    public String getOriginalNonce() {
+        return originalNonce;
     }
 }
