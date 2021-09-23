@@ -2,11 +2,13 @@ package rikka.safetynetchecker.main
 
 import android.app.Activity
 import android.os.Build
+import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.safetynet.SafetyNet
 import rikka.safetynetchecker.BuildConfig
+import rikka.safetynetchecker.attest.AttestationException
 import rikka.safetynetchecker.attest.AttestationStatement
 import rikka.safetynetchecker.attest.OfflineVerify
 import rikka.safetynetchecker.util.ResultOf
@@ -22,6 +24,11 @@ class MainViewModel : ViewModel() {
 
     private val random: Random = SecureRandom()
 
+    private val fingerprint = "${Build.BRAND}/${Build.PRODUCT}/${Build.DEVICE}:" +
+            "${Build.VERSION.RELEASE}/${Build.ID}/${Build.VERSION.INCREMENTAL}:" +
+            "${Build.TYPE}/${Build.TAGS}"
+
+
     private fun getNonce(): ByteArray {
         val byteStream = ByteArrayOutputStream()
         val bytes = ByteArray(24)
@@ -29,7 +36,7 @@ class MainViewModel : ViewModel() {
         try {
             byteStream.write(bytes)
             byteStream.write(System.currentTimeMillis().toString().toByteArray())
-            byteStream.write(Build.MODEL.toString().toByteArray())
+            byteStream.write(fingerprint.toByteArray())
             byteStream.write(Build.VERSION.SDK_INT.toString().toByteArray())
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 byteStream.write(Build.VERSION.SECURITY_PATCH.toString().toByteArray())
@@ -48,12 +55,18 @@ class MainViewModel : ViewModel() {
             .addOnSuccessListener(activity) {
                 try {
                     result.value = (ResultOf.Success(OfflineVerify.process(it.jwsResult)))
-                } catch (e: Throwable) {
+                } catch (e: AttestationException) {
+                    Log.w(TAG, "OfflineVerify: ", e)
                     result.value = (ResultOf.Failure(e))
                 }
             }
             .addOnFailureListener(activity) { e ->
+                Log.w(TAG, "checkSafetyNet: ", e)
                 result.value = (ResultOf.Failure(e))
             }
+    }
+
+    companion object {
+        private const val TAG = "YASNAC"
     }
 }
