@@ -46,7 +46,11 @@ class MainViewModel : ViewModel() {
 
         SafetyNet.getClient(activity).attest(getNonce(), BuildConfig.API_KEY)
             .addOnSuccessListener(activity) {
-                result.value = (ResultOf.Success(OfflineVerify.process(it.jwsResult)))
+                try {
+                    result.value = (ResultOf.Success(OfflineVerify.process(it.jwsResult)))
+                } catch (e: Throwable) {
+                    result.value = (ResultOf.Failure(e))
+                }
             }
             .addOnFailureListener(activity) { e ->
                 result.value = (ResultOf.Failure(e))
