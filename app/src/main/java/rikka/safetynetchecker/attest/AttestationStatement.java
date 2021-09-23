@@ -1,25 +1,13 @@
-/*
- * Copyright 2017 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-
 package rikka.safetynetchecker.attest;
+
+import androidx.annotation.Nullable;
 
 import com.google.api.client.json.webtoken.JsonWebSignature;
 import com.google.api.client.util.Key;
 import com.google.common.io.BaseEncoding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A statement returned by the Attestation API.
@@ -41,6 +29,7 @@ public class AttestationStatement extends JsonWebSignature.Payload {
      * Package name of the APK that submitted this request.
      */
     @Key
+    @Nullable
     private String apkPackageName;
 
     /**
@@ -53,6 +42,7 @@ public class AttestationStatement extends JsonWebSignature.Payload {
      * Digest of the APK that submitted this request.
      */
     @Key
+    @Nullable
     private String apkDigestSha256;
 
     /**
@@ -82,17 +72,18 @@ public class AttestationStatement extends JsonWebSignature.Payload {
     }
 
     public String getApkPackageName() {
-        return apkPackageName;
+        return String.valueOf(apkPackageName);
     }
 
     public byte[] getApkDigestSha256() {
+        if (apkDigestSha256 == null) return null;
         return BaseEncoding.base64().decode(apkDigestSha256);
     }
 
-    public byte[][] getApkCertificateDigestSha256() {
-        byte[][] certs = new byte[apkCertificateDigestSha256.length][];
-        for (int i = 0; i < apkCertificateDigestSha256.length; i++) {
-            certs[i] = BaseEncoding.base64().decode(apkCertificateDigestSha256[i]);
+    public List<byte[]> getApkCertificateDigestSha256() {
+        List<byte[]> certs = new ArrayList<>(apkCertificateDigestSha256.length);
+        for (String s : apkCertificateDigestSha256) {
+            certs.add(BaseEncoding.base64().decode(s));
         }
         return certs;
     }
@@ -103,10 +94,6 @@ public class AttestationStatement extends JsonWebSignature.Payload {
 
     public boolean hasBasicIntegrity() {
         return basicIntegrity;
-    }
-
-    public boolean hasBasicEvaluationType() {
-        return evaluationType.contains("BASIC");
     }
 
     public boolean hasHardwareBackedEvaluationType() {
