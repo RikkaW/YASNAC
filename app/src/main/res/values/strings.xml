@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">YASNAC</string>
+    <string name="app_name_long">Yet Another SafetyNet Attestation Checker</string>
+    <string name="run_test_button">Run SafetyNet Attestation</string>
+    <string name="success">Success</string>
+    <string name="failed">Failed</string>
+    <string name="pass">Pass</string>
+    <string name="fail">Fail</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="api_error">Google Play Services API error</string>
+    <string name="device">Device</string>
+    <string name="android_version">Android version</string>
+    <string name="security_patch">Security patch</string>
+    <string name="view_json">View JSON</string>
+</resources>
