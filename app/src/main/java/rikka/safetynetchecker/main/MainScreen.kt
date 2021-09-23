@@ -3,6 +3,7 @@ package rikka.safetynetchecker.main
 import android.os.Build
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -10,11 +11,9 @@ import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -28,7 +27,6 @@ import rikka.safetynetchecker.attest.OfflineVerify
 import rikka.safetynetchecker.icon.Visibility
 import rikka.safetynetchecker.theme.YetAnotherSafetyNetCheckerTheme
 import rikka.safetynetchecker.util.ResultOf
-import java.lang.RuntimeException
 
 @Composable
 fun MainScreen(
@@ -72,7 +70,7 @@ fun MainScreen(
                     .fillMaxWidth()
             )
         }
-    ) { contentPadding ->
+    ) {
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
@@ -148,11 +146,13 @@ fun ShowRawJsonDialog(text: String, openDialog: MutableState<Boolean>) {
             openDialog.value = false
         },
         text = {
-            Text(
-                text = text,
-                fontFamily = FontFamily.Monospace,
-                modifier = Modifier.verticalScroll(rememberScrollState())
-            )
+            SelectionContainer {
+                Text(
+                    text = text,
+                    fontFamily = FontFamily.Monospace,
+                    modifier = Modifier.verticalScroll(rememberScrollState())
+                )
+            }
         },
         confirmButton = {
             Button(
@@ -235,7 +235,7 @@ fun FailureContentPreview() {
 fun FailureContent(e: Throwable) {
     MainCardTitle(text = stringResource(if (e is ApiException) R.string.api_error else R.string.something_went_wrong))
     if (e is ApiException) {
-        Text(text = "${e.statusCode}: ${ CommonStatusCodes.getStatusCodeString(e.statusCode)}")
+        Text(text = "${e.statusCode}: ${CommonStatusCodes.getStatusCodeString(e.statusCode)}")
     } else {
         Text(text = e.toString())
     }
@@ -282,4 +282,3 @@ fun MainPreviewPhone() {
 fun MainPreviewTablet() {
     MainPreview()
 }
-
