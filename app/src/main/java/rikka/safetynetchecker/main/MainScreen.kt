@@ -1,6 +1,9 @@
 package rikka.safetynetchecker.main
 
 import android.os.Build
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.selection.SelectionContainer
@@ -32,6 +35,7 @@ import rikka.safetynetchecker.theme.YetAnotherSafetyNetCheckerTheme
 import rikka.safetynetchecker.util.ResultOf
 import java.time.Instant
 
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun MainScreen(
     result: State<ResultOf<AttestationStatement>>,
@@ -93,10 +97,19 @@ fun MainScreen(
                 }
                 Spacer(modifier = Modifier.height(8.dp))
 
-                if (result.value != ResultOf.Initial) {
-                    MainCard {
-                        ResultContent(result)
+                val showContent = result.value != ResultOf.Initial
+
+                AnimatedVisibility(visible = showContent) {
+                    Box(
+                        modifier = Modifier.animateContentSize()
+                    ) {
+                        MainCard {
+                            ResultContent(result)
+                        }
                     }
+                }
+
+                if (showContent) {
                     Spacer(modifier = Modifier.height(8.dp))
                 }
 

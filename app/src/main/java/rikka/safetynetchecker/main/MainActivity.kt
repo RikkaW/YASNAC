@@ -50,8 +50,10 @@ class MainActivity : ComponentActivity() {
                     }
                     val onLearnMoreClick: () -> Unit = {
                         try {
-                            startActivity(Intent(Intent.ACTION_VIEW)
-                                .setData(Uri.parse("https://developer.android.com/training/safetynet/attestation")))
+                            startActivity(
+                                Intent(Intent.ACTION_VIEW)
+                                    .setData(Uri.parse("https://developer.android.com/training/safetynet/attestation"))
+                            )
                         } catch (e: Throwable) {
                         }
                     }
