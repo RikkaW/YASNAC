@@ -123,17 +123,19 @@ fun RefreshButton(enabled: Boolean, onRefreshClick: () -> Unit) {
 @Composable
 fun DeviceInfoContent() {
     MainCardColumn {
-        MainCardTextRow(
-            text1 = stringResource(R.string.device),
+        MainCardTitle(text = stringResource(R.string.device))
+
+        MainCardItem(
+            text1 = stringResource(R.string.model),
             text2 = "${Build.MODEL} (${Build.DEVICE})"
         )
-        MainCardTextRow(
+        MainCardItem(
             text1 = stringResource(R.string.android_version),
             text2 = "${Build.VERSION.RELEASE} (API ${Build.VERSION.SDK_INT})"
         )
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            MainCardTextRow(
+            MainCardItem(
                 text1 = stringResource(R.string.security_patch),
                 text2 = Build.VERSION.SECURITY_PATCH
             )
@@ -167,23 +169,24 @@ fun ShowRawJsonDialog(text: String, openDialog: MutableState<Boolean>) {
 
 @Composable
 fun SuccessfulResultContent(statement: AttestationStatement) {
-    val integrity = statement.isCtsProfileMatch && statement.hasBasicIntegrity()
-    MainCardTitle(text = stringResource(if (integrity) R.string.success else R.string.failed))
-    MainCardTextRow(
+    MainCardTitle(text = stringResource(R.string.result))
+    MainCardItem(
         text1 = "Basic integrity",
         text2 = stringResource(if (statement.hasBasicIntegrity()) R.string.pass else R.string.fail)
     )
-    MainCardTextRow(
+    MainCardItem(
         text1 = "CTS profile match",
         text2 = stringResource(if (statement.isCtsProfileMatch) R.string.pass else R.string.fail)
     )
-    MainCardTextRow(
+    MainCardItem(
         text1 = "Evaluation type",
         text2 = if (statement.hasHardwareBackedEvaluationType()) "HARDWARE_BACKED" else "BASIC"
     )
 
+    Spacer(modifier = Modifier.height(24.dp))
+
     MainCardTitle(text = stringResource(R.string.more_info))
-    MainCardTextRow(
+    MainCardItem(
         text1 = "Timestamp",
         text2 = Instant.ofEpochMilli(statement.timestampMs).toString()
     )
@@ -191,7 +194,7 @@ fun SuccessfulResultContent(statement: AttestationStatement) {
     if (statement.originalNonce == statement.nonce) {
         resId = R.string.pass
     }
-    MainCardTextRow(
+    MainCardItem(
         text1 = "Nonce",
         text2 = stringResource(resId)
     )
@@ -200,7 +203,7 @@ fun SuccessfulResultContent(statement: AttestationStatement) {
         if (BuildConfig.APPLICATION_ID == statement.apkPackageName) {
             resId = R.string.pass
         }
-        MainCardTextRow(
+        MainCardItem(
             text1 = "Package name",
             text2 = stringResource(resId)
         )
@@ -208,11 +211,11 @@ fun SuccessfulResultContent(statement: AttestationStatement) {
         if (statement.apkCertificateDigestSha256.contains(BuildConfig.certificateDigest)) {
             resId = R.string.pass
         }
-        MainCardTextRow(
+        MainCardItem(
             text1 = "Certificate digest",
             text2 = stringResource(resId)
         )
-        MainCardTextRow(
+        MainCardItem(
             text1 = "Apk digest",
             text2 = statement.apkDigestSha256
         )
