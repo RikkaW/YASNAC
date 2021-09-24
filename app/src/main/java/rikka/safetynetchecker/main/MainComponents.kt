@@ -7,6 +7,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -33,9 +34,22 @@ fun MainCardColumn(content: @Composable ColumnScope.() -> Unit) {
 
 @Composable
 fun MainCardItem(text1: String, text2: String) {
-    Spacer(modifier = Modifier.height(8.dp))
-    Text(text = text1, style = MaterialTheme.typography.overline)
-    Text(text = text2)
+    val dp = LocalConfiguration.current.smallestScreenWidthDp
+    when {
+        dp > 600 -> {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+            ) {
+                Text(text = text1, modifier = Modifier.fillMaxWidth(0.4f))
+                Text(text = text2)
+            }
+        }
+        else -> {
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text = text1, style = MaterialTheme.typography.overline)
+            Text(text = text2)
+        }
+    }
 }
 
 @Composable

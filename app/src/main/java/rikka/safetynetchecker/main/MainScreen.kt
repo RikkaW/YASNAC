@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -81,7 +82,7 @@ fun MainScreen(
             Column(
                 modifier = Modifier
                     .verticalScroll(rememberScrollState())
-                    .widthIn(max = 480.dp)
+                    .widthIn(max = 600.dp)
                     .padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 16.dp)
                     .navigationBarsPadding()
             ) {
@@ -318,7 +319,7 @@ fun MainPreviewPhone() {
     MainPreview()
 }
 
-@Preview(showBackground = true, widthDp = 720, heightDp = 540)
+@Preview(showBackground = true, device = Devices.PIXEL_C)
 @Composable
 fun MainPreviewTablet() {
     MainPreview()
