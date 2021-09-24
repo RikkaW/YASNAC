@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.YetAnotherSafetyNetChecker" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">@android:color/transparent</item>
+    <style name="Base.V23.YetAnotherSafetyNetChecker.Light" parent="Base.YetAnotherSafetyNetChecker.Light">
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
+
+    <style name="Theme.YetAnotherSafetyNetChecker.Light" parent="Base.V23.YetAnotherSafetyNetChecker.Light"/>
 </resources>

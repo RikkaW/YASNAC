@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.YetAnotherSafetyNetChecker" parent="android:Theme.Material.Light.NoActionBar">
+    <style name="Base.YetAnotherSafetyNetChecker.Light" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
+
+    <style name="Base.YetAnotherSafetyNetChecker.Dark" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.YetAnotherSafetyNetChecker.Light" parent="Base.YetAnotherSafetyNetChecker.Light"/>
+    <style name="Theme.YetAnotherSafetyNetChecker.Dark" parent="Base.YetAnotherSafetyNetChecker.Dark"/>
+
+    <style name="Theme.YetAnotherSafetyNetChecker" parent="Theme.YetAnotherSafetyNetChecker.Light"/>
 </resources>
