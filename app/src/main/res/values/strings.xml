@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">YASNAC</string>
-    <string name="app_name_long">Yet Another SafetyNet Attestation Checker</string>
+    <string name="app_name" translatable="false">YASNAC</string>
+    <string name="app_name_long" translatable="false">Yet Another SafetyNet Attestation Checker</string>
     <string name="run_test_button">Run SafetyNet Attestation</string>
     <string name="learn_more_button">View document from Google</string>
     <string name="result">Result</string>
@@ -14,7 +14,7 @@
     <string name="device">Device</string>
     <string name="model">Model</string>
     <string name="android_version">Android version</string>
-    <string name="security_patch">Security patch</string>
+    <string name="security_patch">Security patch level</string>
     <string name="view_json">View JSON</string>
     <string name="more_info">More info</string>
 </resources>

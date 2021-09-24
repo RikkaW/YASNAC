@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="run_test_button">运行 SafetyNet 认证</string>
+    <string name="learn_more_button">阅读 Google 的文档</string>
+    <string name="result">结果</string>
+    <string name="success">成功</string>
+    <string name="failed">失败</string>
+    <string name="pass">通过</string>
+    <string name="fail">失败</string>
+    <string name="please_wait">请等待…</string>
+    <string name="something_went_wrong">出了些问题</string>
+    <string name="api_error">Google Play 服务 API 错误</string>
+    <string name="device">设备</string>
+    <string name="model">型号</string>
+    <string name="android_version">Android 版本</string>
+    <string name="security_patch">安全补丁级别</string>
+    <string name="view_json">查看 JSON</string>
+    <string name="more_info">更多信息</string>
+</resources>
