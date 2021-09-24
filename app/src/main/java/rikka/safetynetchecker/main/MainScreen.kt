@@ -183,13 +183,13 @@ fun ShowRawJsonDialog(text: String, openDialog: MutableState<Boolean>) {
 @Composable
 fun SuccessfulResultContent(statement: AttestationStatement) {
     MainCardTitle(text = stringResource(R.string.result))
-    MainCardItem(
-        text1 = "Basic integrity",
-        text2 = stringResource(if (statement.hasBasicIntegrity()) R.string.pass else R.string.fail)
+    MainCardPassOrFailItem(
+        text = "Basic integrity",
+        pass = statement.hasBasicIntegrity()
     )
-    MainCardItem(
-        text1 = "CTS profile match",
-        text2 = stringResource(if (statement.isCtsProfileMatch) R.string.pass else R.string.fail)
+    MainCardPassOrFailItem(
+        text = "CTS profile match",
+        pass = statement.isCtsProfileMatch
     )
     MainCardItem(
         text1 = "Evaluation type",
