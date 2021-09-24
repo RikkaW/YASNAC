@@ -1,6 +1,6 @@
 package rikka.safetynetchecker.main
 
-import android.app.Activity
+import android.content.Context
 import android.os.Build
 import android.util.Log
 import androidx.compose.runtime.MutableState
@@ -35,11 +35,11 @@ class MainViewModel : ViewModel() {
         return s
     }
 
-    fun checkSafetyNet(activity: Activity) {
+    fun checkSafetyNet(context: Context) {
         result.value = ResultOf.Loading
         val nonce = getNonce()
-        SafetyNet.getClient(activity).attest(nonce.toByteArray(), BuildConfig.API_KEY)
-            .addOnSuccessListener(activity) {
+        SafetyNet.getClient(context.applicationContext).attest(nonce.toByteArray(), BuildConfig.API_KEY)
+            .addOnSuccessListener {
                 try {
                     val statement = OfflineVerify.process(it.jwsResult)
                     statement.originalNonce = nonce
@@ -49,7 +49,7 @@ class MainViewModel : ViewModel() {
                     result.value = (ResultOf.Failure(e))
                 }
             }
-            .addOnFailureListener(activity) { e ->
+            .addOnFailureListener { e ->
                 Log.w(TAG, "checkSafetyNet: ", e)
                 result.value = (ResultOf.Failure(e))
             }
