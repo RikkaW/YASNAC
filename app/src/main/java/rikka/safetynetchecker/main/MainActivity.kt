@@ -1,5 +1,7 @@
 package rikka.safetynetchecker.main
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -46,9 +48,18 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     }
+                    val onLearnMoreClick: () -> Unit = {
+                        try {
+                            startActivity(Intent(Intent.ACTION_VIEW)
+                                .setData(Uri.parse("https://developer.android.com/training/safetynet/attestation")))
+                        } catch (e: Throwable) {
+                        }
+                    }
                     MainScreen(
                         viewModel.result,
-                        onRefreshClick)
+                        onRefreshClick,
+                        onLearnMoreClick
+                    )
                 }
             }
         }

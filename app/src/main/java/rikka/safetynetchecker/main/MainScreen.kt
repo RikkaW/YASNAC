@@ -26,6 +26,7 @@ import rikka.safetynetchecker.BuildConfig
 import rikka.safetynetchecker.R
 import rikka.safetynetchecker.attest.AttestationStatement
 import rikka.safetynetchecker.attest.OfflineVerify
+import rikka.safetynetchecker.icon.OpenInNew
 import rikka.safetynetchecker.icon.Visibility
 import rikka.safetynetchecker.theme.YetAnotherSafetyNetCheckerTheme
 import rikka.safetynetchecker.util.ResultOf
@@ -34,7 +35,8 @@ import java.time.Instant
 @Composable
 fun MainScreen(
     result: State<ResultOf<AttestationStatement>>,
-    onRefreshClick: () -> Unit = {}
+    onRefreshClick: () -> Unit = {},
+    onLearnMoreClick: () -> Unit = {},
 ) {
     Scaffold(
         topBar = {
@@ -97,27 +99,24 @@ fun MainScreen(
                     }
                     Spacer(modifier = Modifier.height(8.dp))
                 }
-                RefreshButton(result.value != ResultOf.Loading, onRefreshClick)
+
+                MainButton(
+                    image = Icons.Outlined.Refresh,
+                    text = stringResource(id = R.string.run_test_button),
+                    enabled = result.value != ResultOf.Loading,
+                    onClick = onRefreshClick
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                MainButton(
+                    image = Icons.Outlined.OpenInNew,
+                    text = stringResource(id = R.string.learn_more_button),
+                    enabled = true,
+                    onClick = onLearnMoreClick
+                )
             }
         }
-    }
-}
-
-@Composable
-fun RefreshButton(enabled: Boolean, onRefreshClick: () -> Unit) {
-    OutlinedButton(
-        onClick = onRefreshClick,
-        shape = MaterialTheme.shapes.medium,
-        modifier = Modifier.fillMaxWidth(),
-        enabled = enabled
-    ) {
-        Icon(
-            Icons.Outlined.Refresh,
-            contentDescription = null,
-            modifier = Modifier.size(ButtonDefaults.IconSize)
-        )
-        Spacer(Modifier.size(ButtonDefaults.IconSpacing))
-        Text(text = stringResource(id = R.string.run_test_button))
     }
 }
 

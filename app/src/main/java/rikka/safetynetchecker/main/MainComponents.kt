@@ -1,12 +1,10 @@
 package rikka.safetynetchecker.main
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -60,4 +58,22 @@ fun MainCardTitle(text: String) {
         fontSize = 20.sp,
         modifier = Modifier.padding(bottom = 4.dp)
     )
+}
+
+@Composable
+fun MainButton(image: ImageVector, text: String, enabled: Boolean, onClick: () -> Unit) {
+    OutlinedButton(
+        onClick = onClick,
+        shape = MaterialTheme.shapes.medium,
+        modifier = Modifier.fillMaxWidth(),
+        enabled = enabled
+    ) {
+        Icon(
+            image,
+            contentDescription = null,
+            modifier = Modifier.size(ButtonDefaults.IconSize)
+        )
+        Spacer(Modifier.size(ButtonDefaults.IconSpacing))
+        Text(text = text)
+    }
 }
