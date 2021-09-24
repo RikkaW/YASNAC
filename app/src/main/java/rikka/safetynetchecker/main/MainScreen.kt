@@ -159,7 +159,7 @@ fun ShowRawJsonDialog(text: String, openDialog: MutableState<Boolean>) {
             }
         },
         confirmButton = {
-            Button(
+            TextButton(
                 onClick = { openDialog.value = false }) {
                 Text(stringResource(id = android.R.string.ok))
             }
