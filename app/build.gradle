@@ -24,8 +24,8 @@ android {
         applicationId "rikka.safetynetchecker"
         minSdk 21
         targetSdk 31
-        versionCode 1
-        versionName "1.0.0"
+        versionCode version_code
+        versionName version_name
         buildConfigField "String", "API_KEY", "\"${properties.getProperty("apiKey", "")}\""
         buildConfigField "String", "SAMPLE", "\"${property("sampleResult")}\""
         def info = KeystoreHelper.getCertificateInfo(
@@ -78,7 +78,7 @@ android {
 
 android.applicationVariants.all { variant ->
     variant.outputs.all {
-        outputFileName = "yasnac-v${variant.versionName}-${variant.name}.apk"
+        outputFileName = "yasnac-${variant.versionName}-${variant.name}.apk"
     }
 }
 

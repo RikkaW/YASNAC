@@ -1,3 +1,11 @@
+import org.eclipse.jgit.api.Git
+import org.eclipse.jgit.internal.storage.file.FileRepository
+import org.eclipse.jgit.lib.Constants
+import org.eclipse.jgit.revwalk.RevCommit
+import org.eclipse.jgit.revwalk.RevWalk
+
+import java.util.stream.StreamSupport
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
@@ -7,4 +15,44 @@ buildscript {
         compose_version = '1.1.0-alpha04'
         accompanist_version = '0.18.0'
     }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.eclipse.jgit:org.eclipse.jgit:5.13.0.202109080827-r'
+    }
+}
+
+ext {
+    def gitLatestTag = null
+    def gitCommitId = null
+    def gitCommitCount = 0
+
+    try (FileRepository repo = new FileRepository(rootProject.file(".git"))) {
+        def allTags = repo.getRefDatabase().getRefsByPrefix(Constants.R_TAGS)
+
+        try (RevWalk revWalk = new RevWalk(repo)) {
+            revWalk.markStart(revWalk.parseCommit(repo.resolve("HEAD")));
+            RevCommit next = revWalk.next();
+
+            while (next != null) {
+                for (tag in allTags) {
+                    if (tag.getObjectId() == next.id) {
+                        gitLatestTag = tag.name.substring(Constants.R_TAGS.length())
+                        break
+                    }
+                }
+                if (gitLatestTag != null) break
+                next = revWalk.next()
+            }
+        }
+
+        def gitObjectId = repo.refDatabase.exactRef("refs/remotes/origin/master").objectId
+        gitCommitId = gitObjectId.abbreviate(10).name()
+        gitCommitCount = StreamSupport.stream(new Git(repo).log().add(gitObjectId).call().spliterator(), false).count()
+    }
+
+    version_code = (int) gitCommitCount
+    version_name = "${gitLatestTag}.r${gitCommitCount}.${gitCommitId}".toString()
 }
