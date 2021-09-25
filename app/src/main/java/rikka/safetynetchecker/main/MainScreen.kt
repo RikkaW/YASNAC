@@ -265,7 +265,7 @@ fun FailureContent(e: Throwable) {
     if (e is ApiException) {
         Text(text = "${e.statusCode}: ${CommonStatusCodes.getStatusCodeString(e.statusCode)}")
     } else {
-        Text(text = e.toString())
+        Text(text = e.message ?: e.stackTraceToString())
     }
 }
 

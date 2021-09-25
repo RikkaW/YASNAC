@@ -19,7 +19,7 @@ public class OfflineVerify {
                     .setPayloadClass(AttestationStatement.class)
                     .parse(signedAttestationStatement);
         } catch (Exception e) {
-            throw new AttestationException("Not valid JWS " + "format.", e);
+            throw new AttestationException("Not valid JWS format.", e);
         }
 
         X509Certificate cert;
