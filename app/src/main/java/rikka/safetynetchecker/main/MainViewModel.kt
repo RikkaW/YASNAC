@@ -6,6 +6,8 @@ import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.safetynet.SafetyNet
 import rikka.safetynetchecker.BuildConfig
 import rikka.safetynetchecker.attest.AttestationException
@@ -37,7 +39,13 @@ class MainViewModel : ViewModel() {
 
     fun checkSafetyNet(context: Context) {
         result.value = ResultOf.Loading
+        if (GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(context, 13000000) != ConnectionResult.SUCCESS) {
+            result.value = (ResultOf.Failure(AttestationException("Requires Google Play Services v13.0 or above")))
+            return
+        }
+
         val nonce = getNonce()
+
         SafetyNet.getClient(context.applicationContext).attest(nonce.toByteArray(), BuildConfig.API_KEY)
             .addOnSuccessListener {
                 try {
