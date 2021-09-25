@@ -42,7 +42,18 @@ class MainViewModel : ViewModel() {
             .addOnSuccessListener {
                 try {
                     val statement = OfflineVerify.process(it.jwsResult)
-                    statement.originalNonce = nonce
+                    if (nonce != statement.nonce) {
+                        throw AttestationException("Nonce does not match")
+                    }
+                    if (statement.isCtsProfileMatch) {
+                        if (BuildConfig.APPLICATION_ID != statement.apkPackageName) {
+                            throw AttestationException("Application id does not match")
+                        }
+                        if (!statement.apkCertificateDigestSha256.contains(BuildConfig.certificateDigest)) {
+                            throw AttestationException("Apk certificate does not match")
+                        }
+                    }
+
                     result.value = (ResultOf.Success(statement))
                 } catch (e: AttestationException) {
                     Log.w(TAG, "OfflineVerify: ", e)

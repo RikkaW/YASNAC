@@ -203,36 +203,6 @@ fun SuccessfulResultContent(statement: AttestationStatement) {
         text1 = "Timestamp",
         text2 = Instant.ofEpochMilli(statement.timestampMs).toString()
     )
-    var resId = R.string.fail
-    if (statement.originalNonce == statement.nonce) {
-        resId = R.string.pass
-    }
-    MainCardItem(
-        text1 = "Nonce",
-        text2 = stringResource(resId)
-    )
-    if (statement.isCtsProfileMatch) {
-        resId = R.string.fail
-        if (BuildConfig.APPLICATION_ID == statement.apkPackageName) {
-            resId = R.string.pass
-        }
-        MainCardItem(
-            text1 = "Package name",
-            text2 = stringResource(resId)
-        )
-        resId = R.string.fail
-        if (statement.apkCertificateDigestSha256.contains(BuildConfig.certificateDigest)) {
-            resId = R.string.pass
-        }
-        MainCardItem(
-            text1 = "Certificate digest",
-            text2 = stringResource(resId)
-        )
-        MainCardItem(
-            text1 = "Apk digest",
-            text2 = statement.apkDigestSha256
-        )
-    }
 
     val openDialog = remember { mutableStateOf(false) }
 

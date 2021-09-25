@@ -64,8 +64,6 @@ public class AttestationStatement extends JsonWebSignature.Payload {
     @Key
     private String evaluationType;
 
-    private String originalNonce;
-
     public String getNonce() {
         return new String(BaseEncoding.base64().decode(nonce), StandardCharsets.UTF_8);
     }
@@ -96,13 +94,5 @@ public class AttestationStatement extends JsonWebSignature.Payload {
 
     public boolean hasHardwareBackedEvaluationType() {
         return evaluationType.contains("HARDWARE_BACKED");
-    }
-
-    public void setOriginalNonce(String originalNonce) {
-        this.originalNonce = originalNonce;
-    }
-
-    public String getOriginalNonce() {
-        return originalNonce;
     }
 }
