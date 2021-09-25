@@ -2,7 +2,7 @@
     <string name="app_name" translatable="false">YASNAC</string>
     <string name="app_name_long" translatable="false">Yet Another SafetyNet Attestation Checker</string>
     <string name="run_test_button">Run SafetyNet Attestation</string>
-    <string name="learn_more_button">View document from Google</string>
+    <string name="learn_more_button">Learn more</string>
     <string name="result">Result</string>
     <string name="success">Success</string>
     <string name="failed">Failed</string>
