@@ -15,5 +15,4 @@
     <string name="android_version">Android 版本</string>
     <string name="security_patch">安全补丁级别</string>
     <string name="view_json">查看 JSON</string>
-    <string name="more_info">更多信息</string>
 </resources>

@@ -195,14 +195,16 @@ fun SuccessfulResultContent(statement: AttestationStatement) {
         text1 = "Evaluation type",
         text2 = if (statement.hasHardwareBackedEvaluationType()) "HARDWARE_BACKED" else "BASIC"
     )
-
-    Spacer(modifier = Modifier.height(24.dp))
-
-    MainCardTitle(text = stringResource(R.string.more_info))
     MainCardItem(
         text1 = "Timestamp",
         text2 = Instant.ofEpochMilli(statement.timestampMs).toString()
     )
+    if (!statement.isCtsProfileMatch && !statement.advice.isNullOrBlank()) {
+        MainCardItem(
+            text1 = "Advice",
+            text2 = statement.advice
+        )
+    }
 
     val openDialog = remember { mutableStateOf(false) }
 
