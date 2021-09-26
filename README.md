@@ -17,6 +17,8 @@ In the production environment, the response of the SafetyNet Attestation API sho
 
 [GitHub release](https://github.com/RikkaW/YASNAC/releases/latest)
 
+Release apk uses our API key, which has a quota of 10,000 times per day. The quota is shared across all users. If the quota is exhausted, you will see an error.
+
 ## Build
 
 1. Obtain an API key by [following the guide from Google](https://developer.android.com/training/safetynet/attestation#obtain-api-key)
