@@ -13,6 +13,10 @@ This app uses SafetyNet Attestation API and displays the result.
 
 In the production environment, the response of the SafetyNet Attestation API should be transfer to a remote server for verification. As a simple demonstration project, it is impractical to provide a server, so the verification step runs locally.
 
+## Download
+
+[GitHub release](https://github.com/RikkaW/YASNAC/releases/latest)
+
 ## Build
 
 1. Obtain an API key by [following the guide from Google](https://developer.android.com/training/safetynet/attestation#obtain-api-key)
