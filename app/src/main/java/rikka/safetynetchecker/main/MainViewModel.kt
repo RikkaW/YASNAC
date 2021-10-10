@@ -30,7 +30,7 @@ class MainViewModel : ViewModel() {
         var s = "${UUID.randomUUID()}\n" +
                 "${OffsetDateTime.now()}\n" +
                 "${fingerprint}\n" +
-                "${Build.VERSION.SDK_INT}\n";
+                "${Build.VERSION.SDK_INT}\n"
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             s += "${Build.VERSION.SECURITY_PATCH}\n"
         }
@@ -46,7 +46,8 @@ class MainViewModel : ViewModel() {
 
         val nonce = getNonce()
 
-        SafetyNet.getClient(context.applicationContext).attest(nonce.toByteArray(), BuildConfig.API_KEY)
+        SafetyNet.getClient(context.applicationContext)
+            .attest(nonce.toByteArray(), BuildConfig.API_KEY)
             .addOnSuccessListener {
                 try {
                     val statement = OfflineVerify.process(it.jwsResult)

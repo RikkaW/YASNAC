@@ -34,6 +34,9 @@ import rikka.safetynetchecker.icon.Visibility
 import rikka.safetynetchecker.theme.YetAnotherSafetyNetCheckerTheme
 import rikka.safetynetchecker.util.ResultOf
 import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -195,11 +198,18 @@ fun SuccessfulResultContent(statement: AttestationStatement) {
         text1 = "Evaluation type",
         text2 = if (statement.hasHardwareBackedEvaluationType()) "HARDWARE_BACKED" else "BASIC"
     )
+    val time = Instant.ofEpochMilli(statement.timestampMs).atZone(ZoneId.systemDefault())
     MainCardItem(
         text1 = "Timestamp",
-        text2 = Instant.ofEpochMilli(statement.timestampMs).toString()
+        text2 = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).format(time)
     )
-    if (!statement.isCtsProfileMatch && !statement.advice.isNullOrBlank()) {
+    if (statement.isCtsProfileMatch) {
+        MainCardItem(
+            text1 = "Apk digest",
+            text2 = statement.apkDigestSha256
+        )
+    }
+    if (!statement.advice.isNullOrEmpty()) {
         MainCardItem(
             text1 = "Advice",
             text2 = statement.advice
