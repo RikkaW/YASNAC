@@ -67,6 +67,21 @@ public class AttestationStatement extends JsonWebSignature.Payload {
     @Key
     private String advice;
 
+    public AttestationStatement() {
+    }
+
+    public AttestationStatement(String nonce, long timestampMs, @Nullable String apkPackageName, String[] apkCertificateDigestSha256, @Nullable String apkDigestSha256, boolean ctsProfileMatch, boolean basicIntegrity, String evaluationType, String advice) {
+        this.nonce = nonce;
+        this.timestampMs = timestampMs;
+        this.apkPackageName = apkPackageName;
+        this.apkCertificateDigestSha256 = apkCertificateDigestSha256;
+        this.apkDigestSha256 = apkDigestSha256;
+        this.ctsProfileMatch = ctsProfileMatch;
+        this.basicIntegrity = basicIntegrity;
+        this.evaluationType = evaluationType;
+        this.advice = advice;
+    }
+
     public String getNonce() {
         return new String(BaseEncoding.base64().decode(nonce), StandardCharsets.UTF_8);
     }

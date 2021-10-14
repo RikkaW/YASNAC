@@ -1,5 +1,6 @@
 package rikka.safetynetchecker.main
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Build
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
@@ -292,13 +293,14 @@ fun ResultContent(state: State<ResultOf<AttestationStatement>>) {
 }
 
 @Composable
-fun MainPreview() {
+fun MainPreview(attestationStatement: AttestationStatement) {
     ProvideWindowInsets {
         YetAnotherSafetyNetCheckerTheme {
             val result = remember {
                 mutableStateOf(
                     ResultOf.Success(
-                        OfflineVerify.process(BuildConfig.SAMPLE)
+                        attestationStatement
+
                     )
                 )
             }
@@ -310,11 +312,17 @@ fun MainPreview() {
 @Preview(showBackground = true)
 @Composable
 fun MainPreviewPhone() {
-    MainPreview()
+    MainPreview(OfflineVerify.process(BuildConfig.SAMPLE))
+}
+
+@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
+@Composable
+fun MainPreviewPhoneNight() {
+    MainPreview(OfflineVerify.process(BuildConfig.SAMPLE))
 }
 
 @Preview(showBackground = true, device = Devices.PIXEL_C)
 @Composable
 fun MainPreviewTablet() {
-    MainPreview()
+    MainPreview(OfflineVerify.process(BuildConfig.SAMPLE))
 }
