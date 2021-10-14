@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.CheckCircle
+import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -94,7 +95,7 @@ fun MainButton(image: ImageVector, text: String, enabled: Boolean, onClick: () -
     OutlinedButton(
         onClick = onClick,
         shape = MaterialTheme.shapes.medium,
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().height(40.dp),
         enabled = enabled
     ) {
         Icon(
@@ -104,6 +105,19 @@ fun MainButton(image: ImageVector, text: String, enabled: Boolean, onClick: () -
         )
         Spacer(Modifier.size(ButtonDefaults.IconSpacing))
         Text(text = text)
+    }
+}
+
+@Preview
+@Composable
+fun Button() {
+    Box {
+        MainButton(
+            image = Icons.Outlined.Refresh,
+            text = stringResource(id = R.string.run_test_button),
+            enabled = true,
+            onClick = {}
+        )
     }
 }
 
