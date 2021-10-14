@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="run_test_button">Начать проверку SafetyNet</string>
+    <string name="learn_more_button">Узнать больше</string>
+    <string name="result">Результат</string>
+    <string name="success">Успешно</string>
+    <string name="failed">Не удалось</string>
+    <string name="pass">Пройдено</string>
+    <string name="fail">Неудача</string>
+    <string name="please_wait">Пожалуйста, подождите…</string>
+    <string name="something_went_wrong">Что-то пошло не так</string>
+    <string name="api_error">Ошибка Google Play Сервисов API</string>
+    <string name="device">Устройство</string>
+    <string name="model">Модель</string>
+    <string name="android_version">Версия Android</string>
+    <string name="security_patch">Уровень патча безопасности</string>
+    <string name="view_json">Показать JSON</string>
+</resources>
