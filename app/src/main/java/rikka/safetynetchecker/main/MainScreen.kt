@@ -9,7 +9,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.*
+import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.runtime.*
@@ -39,7 +40,7 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
-@OptIn(ExperimentalAnimationApi::class)
+@OptIn(ExperimentalAnimationApi::class, androidx.compose.material3.ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(
     result: State<ResultOf<AttestationStatement>>,
@@ -56,13 +57,13 @@ fun MainScreen(
                     ) {
                         Text(
                             text = stringResource(id = R.string.app_name),
-                            style = MaterialTheme.typography.subtitle2,
+                            style = MaterialTheme.typography.titleSmall,
                             fontSize = 18.sp,
                             modifier = Modifier.align(Alignment.CenterHorizontally)
                         )
                         Text(
                             text = stringResource(id = R.string.app_name_long),
-                            style = MaterialTheme.typography.caption,
+                            style = MaterialTheme.typography.bodySmall,
                             modifier = Modifier.align(Alignment.CenterHorizontally)
                         )
                     }
@@ -223,7 +224,7 @@ fun SuccessfulResultContent(statement: AttestationStatement) {
 
     TextButton(
         onClick = { openDialog.value = true },
-        shape = MaterialTheme.shapes.medium,
+        //shape = MaterialTheme.shapes.medium,
     ) {
         Icon(
             Icons.Outlined.Visibility,

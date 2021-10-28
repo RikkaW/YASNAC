@@ -1,7 +1,9 @@
 package rikka.safetynetchecker.main
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
+import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.CheckCircle
 import androidx.compose.material.icons.outlined.Refresh
@@ -22,7 +24,8 @@ import rikka.safetynetchecker.icon.Cancel
 fun MainCard(content: @Composable () -> Unit) {
     Card(
         elevation = 0.dp,
-        border = ButtonDefaults.outlinedBorder,
+        //backgroundColor = MaterialTheme.colorScheme.tertiaryContainer,
+        shape = RoundedCornerShape(20.0.dp),
         modifier = Modifier.fillMaxWidth(),
         content = content
     )
@@ -52,7 +55,7 @@ fun MainCardItem(text1: String, text2: String) {
         }
         else -> {
             Spacer(modifier = Modifier.height(12.dp))
-            Text(text = text1, style = MaterialTheme.typography.overline)
+            Text(text = text1, style = MaterialTheme.typography.labelSmall)
             Spacer(modifier = Modifier.height(1.dp))
             Text(text = text2)
         }
@@ -73,7 +76,7 @@ fun MainCardPassOrFailItem(text: String, pass: Boolean) {
         }
         else -> {
             Spacer(modifier = Modifier.height(12.dp))
-            Text(text = text, style = MaterialTheme.typography.overline)
+            Text(text = text, style = MaterialTheme.typography.labelSmall)
             Spacer(modifier = Modifier.height(1.dp))
             PassOrFailText(pass = pass)
         }
@@ -92,9 +95,9 @@ fun MainCardTitle(text: String) {
 
 @Composable
 fun MainButton(image: ImageVector, text: String, enabled: Boolean, onClick: () -> Unit) {
-    OutlinedButton(
+    FilledTonalButton(
         onClick = onClick,
-        shape = MaterialTheme.shapes.medium,
+        //shape = MaterialTheme.shapes.medium,
         modifier = Modifier.fillMaxWidth().height(40.dp),
         enabled = enabled
     ) {
@@ -123,7 +126,7 @@ fun Button() {
 
 @Composable
 fun PassOrFailText(pass: Boolean) {
-    val color = if (pass) MaterialTheme.colors.primary else MaterialTheme.colors.error
+    val color = if (pass) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
     val text = stringResource(if (pass) R.string.pass else R.string.fail)
     val imageVector = if (pass) Icons.Outlined.CheckCircle else Icons.Outlined.Cancel
     Row(

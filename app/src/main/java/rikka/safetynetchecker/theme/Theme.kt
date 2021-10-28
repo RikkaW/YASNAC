@@ -2,10 +2,12 @@ package rikka.safetynetchecker.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
+import androidx.compose.material3.dynamicDarkColorScheme
+import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 
 @Composable
@@ -48,16 +50,28 @@ private fun lightColorPalette() = if (Build.VERSION.SDK_INT >= Build.VERSION_COD
 
 @Composable
 fun YetAnotherSafetyNetCheckerTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+    val context = LocalContext.current
     val colors = if (darkTheme) {
         darkColorPalette()
     } else {
         lightColorPalette()
     }
 
-    MaterialTheme(
+    val colorSystem = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+    } else {
+        androidx.compose.material3.MaterialTheme.colorScheme
+    }
+
+    androidx.compose.material.MaterialTheme(
         colors = colors,
-        typography = Typography,
         shapes = Shapes,
-        content = content
-    )
+    ) {
+        androidx.compose.material3.MaterialTheme(
+            colorScheme = colorSystem,
+            //shapes = Shapes,
+            content = content
+        )
+    }
+
 }
