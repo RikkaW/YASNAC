@@ -3,7 +3,7 @@
     <string name="app_name_long" translatable="false">Yet Another SafetyNet Attestation Checker</string>
     <string name="run_test_button">Uruchom sprawdzanie SafetyNet</string>
     <string name="learn_more_button">Dowiedz się więcej</string>
-    <string name="result">Wynik</string>
+    <string name="result">Rezultat</string>
     <string name="success">Powodzenie</string>
     <string name="failed">Niepowodzenie</string>
     <string name="pass">Powodzenie</string>
