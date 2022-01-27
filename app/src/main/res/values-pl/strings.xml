@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name" translatable="false">YASNAC</string>
+    <string name="app_name_long" translatable="false">Yet Another SafetyNet Attestation Checker</string>
+    <string name="run_test_button">Uruchom sprawdzanie SafetyNet</string>
+    <string name="learn_more_button">Dowiedz się więcej</string>
+    <string name="result">Rezultat</string>
+    <string name="success">Powodzenie</string>
+    <string name="failed">Niepowodzenie</string>
+    <string name="pass">Powodzenie</string>
+    <string name="fail">Niepowodzenie</string>
+    <string name="please_wait">Proszę czekać…</string>
+    <string name="something_went_wrong">Coś poszło nie tak</string>
+    <string name="api_error">Błąd API Usług Google Play</string>
+    <string name="device">Urządzenie</string>
+    <string name="model">Model</string>
+    <string name="android_version">Wersja Androida</string>
+    <string name="security_patch">Poziom poprawek zabezpieczeń</string>
+    <string name="view_json">Pokaż JSON</string>
+</resources>
