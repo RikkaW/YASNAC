@@ -21,8 +21,8 @@ Release apk uses our API key, which has a quota of 10,000 times per day. The quo
 
 ## Build
 
-1. Obtain an API key by [following the guide from Google](https://developer.android.com/training/safetynet/attestation#obtain-api-key)
-2. Write the key to `local.properties` in the form of `apiKey=YOUR_API_KEY`
+1. Obtain as many API keys as desired by [following the guide from Google](https://developer.android.com/training/safetynet/attestation#obtain-api-key)
+2. Write the key(s) to `local.properties` in the form of `apiKey=['YOUR_API_KEY', '...']`
 3. Build with Android Studio or command line `gradlew :app:aR`
 
 ## Something else
