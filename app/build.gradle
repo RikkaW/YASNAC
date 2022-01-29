@@ -10,8 +10,8 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file("local.properties").newDataInputStream())
 
 android {
-    compileSdk 31
-    buildToolsVersion '31.0.0'
+    compileSdk 32
+    buildToolsVersion '32.0.0'
     signingConfigs {
         sign {
             storeFile properties.getProperty("storeFile") != null ? file(properties.getProperty("storeFile")) : android.signingConfigs.debug.storeFile
@@ -23,7 +23,7 @@ android {
     defaultConfig {
         applicationId "rikka.safetynetchecker"
         minSdk 21
-        targetSdk 31
+        targetSdk 32
         versionCode version_code
         versionName version_name
         buildConfigField "String", "API_KEY", "\"${properties.getProperty("apiKey", "")}\""
@@ -95,8 +95,8 @@ dependencies {
     implementation "com.google.accompanist:accompanist-insets-ui:$accompanist_version"
     implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
 
-    implementation 'com.google.android.gms:play-services-safetynet:17.0.1'
-    implementation('com.google.http-client:google-http-client-android:1.40.0') {
+    implementation 'com.google.android.gms:play-services-safetynet:18.0.1'
+    implementation('com.google.http-client:google-http-client-android:1.41.2') {
         exclude group: 'org.apache.httpcomponents'
     }
 

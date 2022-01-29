@@ -12,15 +12,15 @@ task clean(type: Delete) {
 
 buildscript {
     ext {
-        compose_version = '1.1.0-beta01'
-        accompanist_version = '0.18.0'
+        compose_version = '1.2.0-alpha02'
+        accompanist_version = '0.24.1-alpha'
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath 'org.eclipse.jgit:org.eclipse.jgit:5.13.0.202109080827-r'
+        classpath 'org.eclipse.jgit:org.eclipse.jgit:6.0.0.202111291000-r'
     }
 }
 
