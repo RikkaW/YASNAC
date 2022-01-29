@@ -22,6 +22,9 @@ class MainViewModel : ViewModel() {
 
     val result: MutableState<ResultOf<AttestationStatement>> = mutableStateOf(ResultOf.Initial)
 
+    private val keys: Array<String> = BuildConfig.API_KEY.apply { shuffle() }
+    private var count = 0
+
     private val fingerprint = "${Build.BRAND}/${Build.PRODUCT}/${Build.DEVICE}:" +
             "${Build.VERSION.RELEASE}/${Build.ID}/${Build.VERSION.INCREMENTAL}:" +
             "${Build.TYPE}/${Build.TAGS}"
@@ -46,8 +49,18 @@ class MainViewModel : ViewModel() {
 
         val nonce = getNonce()
 
+        val key: String
+        if (count < keys.size) {
+            key = keys[count]
+            count++
+        } else {
+            count = 0
+            key = keys[count]
+            count++
+        }
+
         SafetyNet.getClient(context.applicationContext)
-            .attest(nonce.toByteArray(), BuildConfig.API_KEY)
+            .attest(nonce.toByteArray(), key)
             .addOnSuccessListener {
                 try {
                     val statement = OfflineVerify.process(it.jwsResult)
