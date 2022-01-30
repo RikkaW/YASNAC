@@ -14,5 +14,5 @@
   <string name="model">Model</string>
   <string name="android_version">Android sürümü</string>
   <string name="security_patch">Güvenlik yama seviyesi</string>
-  <string name="view_json">JSON'u görüntüle</string>
+  <string name="view_json">JSON\'u görüntüle</string>
 </resources>
