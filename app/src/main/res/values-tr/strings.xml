@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name" translatable="false">YASNAC</string>
-  <string name="app_name_long" translatable="false">Başka Bir SafetyNet Onay Denetleyicisi</string>
   <string name="run_test_button">SafetyNet Onaylamayı Çalıştır</string>
   <string name="learn_more_button">Daha fazla bilgi edin</string>
   <string name="result">Sonuç</string>
@@ -9,7 +7,7 @@
   <string name="failed">Başarısız</string>
   <string name="pass">Geçti</string>
   <string name="fail">Kaldı</string>
-  <string name="please_wait">Lütfen bekleyin...</string>
+  <string name="please_wait">Lütfen bekleyin…</string>
   <string name="something_went_wrong">Bir şeyler ters gitti</string>
   <string name="api_error">Google Play Hizmetleri API hatası</string>
   <string name="device">Cihaz</string>
