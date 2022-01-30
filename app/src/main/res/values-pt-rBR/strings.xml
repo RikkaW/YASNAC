@@ -1,0 +1,17 @@
+<resources>
+    <string name="run_test_button">Atestar SafetyNet</string>
+    <string name="learn_more_button">Aprender mais</string>
+    <string name="result">Resultado</string>
+    <string name="success">Sucesso</string>
+    <string name="failed">Falhou</string>
+    <string name="pass">Passou</string>
+    <string name="fail">Falha</string>
+    <string name="please_wait">Favor aguarde…</string>
+    <string name="something_went_wrong">Algo deu errado</string>
+    <string name="api_error">Erro na API do Google Play Services</string>
+    <string name="device">Dispositivo</string>
+    <string name="model">Modelo</string>
+    <string name="android_version">Versão do Android</string>
+    <string name="security_patch">Nível do patch de segurança</string>
+    <string name="view_json">Ver JSON</string>
+</resources>
