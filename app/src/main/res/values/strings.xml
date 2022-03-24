@@ -16,4 +16,6 @@
     <string name="android_version">Android version</string>
     <string name="security_patch">Security patch level</string>
     <string name="view_json">View JSON</string>
+    <string name="play_services_version">Google Play Services version</string>
+
 </resources>

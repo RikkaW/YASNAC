@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.google.android.gms.common.GoogleApiAvailability
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -57,8 +58,15 @@ class MainActivity : ComponentActivity() {
                         } catch (e: Throwable) {
                         }
                     }
+                    val playServiceVersion = try {
+                        val pi = packageManager.getPackageInfo(GoogleApiAvailability.GOOGLE_PLAY_SERVICES_PACKAGE, 0)
+                        pi.versionName
+                    } catch (e: Throwable) {
+                        null
+                    }
                     MainScreen(
                         viewModel.result,
+                        playServiceVersion,
                         onRefreshClick,
                         onLearnMoreClick
                     )

@@ -43,6 +43,7 @@ import java.time.format.FormatStyle
 @Composable
 fun MainScreen(
     result: State<ResultOf<AttestationStatement>>,
+    playServiceVersion: String?,
     onRefreshClick: () -> Unit = {},
     onLearnMoreClick: () -> Unit = {},
 ) {
@@ -97,7 +98,7 @@ fun MainScreen(
                     .navigationBarsPadding()
             ) {
                 MainCard {
-                    DeviceInfoContent()
+                    DeviceInfoContent(playServiceVersion)
                 }
                 Spacer(modifier = Modifier.height(8.dp))
 
@@ -138,7 +139,7 @@ fun MainScreen(
 }
 
 @Composable
-fun DeviceInfoContent() {
+fun DeviceInfoContent(playServiceVersion: String?) {
     MainCardColumn {
         MainCardTitle(text = stringResource(R.string.device))
 
@@ -155,6 +156,13 @@ fun DeviceInfoContent() {
             MainCardItem(
                 text1 = stringResource(R.string.security_patch),
                 text2 = Build.VERSION.SECURITY_PATCH
+            )
+        }
+
+        if (playServiceVersion != null) {
+            MainCardItem(
+                text1 = stringResource(R.string.play_services_version),
+                text2 = playServiceVersion
             )
         }
     }
@@ -304,7 +312,7 @@ fun MainPreview(attestationStatement: AttestationStatement) {
                     )
                 )
             }
-            MainScreen(result)
+            MainScreen(result, "1 (1)")
         }
     }
 }
