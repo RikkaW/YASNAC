@@ -26,7 +26,7 @@ jobs:
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
         run: |
           touch local.properties
-          echo apiKey=${{ secrets.API_KEY }} >> local.properties
+          echo apiKey='${{ secrets.API_KEY }}' >> local.properties
           echo storePassword=${{ secrets.KEYSTORE_PASSWORD }} >> local.properties
           echo keyAlias=${{ secrets.KEYSTORE_ALIAS }} >> local.properties
           echo keyPassword='${{ secrets.KEYSTORE_ALIAS_PASSWORD }}' >> local.properties
