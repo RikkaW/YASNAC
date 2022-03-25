@@ -192,31 +192,35 @@ fun ShowRawJsonDialog(text: String, openDialog: MutableState<Boolean>) {
 fun SuccessfulResultContent(statement: AttestationStatement) {
     MainCardTitle(text = stringResource(R.string.result))
     MainCardPassOrFailItem(
-        text = "Basic integrity",
+        text = stringResource(R.string.basic_integrity),
         pass = statement.hasBasicIntegrity()
     )
     MainCardPassOrFailItem(
-        text = "CTS profile match",
+        text = stringResource(R.string.cts_profile_match),
         pass = statement.isCtsProfileMatch
     )
     MainCardItem(
-        text1 = "Evaluation type",
-        text2 = if (statement.hasHardwareBackedEvaluationType()) "HARDWARE_BACKED" else "BASIC"
+        text1 = stringResource(R.string.evaluation_type),
+        text2 = if (statement.hasHardwareBackedEvaluationType()) {
+            stringResource(R.string.hardware_backed)
+        } else {
+            stringResource(R.string.basic)
+        }
     )
     val time = Instant.ofEpochMilli(statement.timestampMs).atZone(ZoneId.systemDefault())
     MainCardItem(
-        text1 = "Timestamp",
+        text1 = stringResource(R.string.timestamp),
         text2 = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).format(time)
     )
     if (statement.isCtsProfileMatch) {
         MainCardItem(
-            text1 = "Apk digest",
+            text1 = stringResource(R.string.apk_digest),
             text2 = statement.apkDigestSha256
         )
     }
     if (!statement.advice.isNullOrEmpty()) {
         MainCardItem(
-            text1 = "Advice",
+            text1 = stringResource(R.string.advice),
             text2 = statement.advice
         )
     }

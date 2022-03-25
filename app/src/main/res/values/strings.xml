@@ -18,4 +18,13 @@
     <string name="view_json">View JSON</string>
     <string name="play_services_version">Google Play Services version</string>
 
+    <string name="basic_integrity">Basic integrity</string>
+    <string name="cts_profile_match">CTS profile match</string>
+    <string name="evaluation_type">Evaluation type</string>
+    <string name="hardware_backed">HARDWARE_BACKED</string>
+    <string name="basic">BASIC</string>
+    <string name="timestamp">Timestamp</string>
+    <string name="apk_digest">Apk digest</string>
+    <string name="advice">Advice</string>
+
 </resources>

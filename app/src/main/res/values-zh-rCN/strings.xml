@@ -16,4 +16,14 @@
     <string name="security_patch">安全补丁级别</string>
     <string name="view_json">查看 JSON</string>
     <string name="play_services_version">Google Play 服务版本</string>
+
+    <string name="basic_integrity">满足基本完整性</string>
+    <string name="cts_profile_match">匹配 CTS 配置文件</string>
+    <string name="evaluation_type">评估类型</string>
+    <string name="hardware_backed">硬件支持</string>
+    <string name="basic">基本</string>
+    <string name="timestamp">时间戳</string>
+    <string name="apk_digest">APK 摘要</string>
+    <string name="advice">建议</string>
+
 </resources>
