@@ -10,3 +10,4 @@
 	public static void throw*(...);
 }
 -repackageclasses
+-allowaccessmodification
