@@ -6,21 +6,17 @@ import org.eclipse.jgit.revwalk.RevWalk
 
 import java.util.stream.StreamSupport
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-
 buildscript {
     ext {
-        compose_version = '1.2.0-alpha02'
-        accompanist_version = '0.24.1-alpha'
+        compose_version = '1.2.0-alpha06'
+        accompanist_version = '0.24.5-alpha'
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath 'org.eclipse.jgit:org.eclipse.jgit:6.0.0.202111291000-r'
+        classpath 'org.eclipse.jgit:org.eclipse.jgit:6.1.0.202203080745-r'
     }
 }
 

@@ -3,7 +3,6 @@ package rikka.safetynetchecker.main
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Build
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -22,7 +21,6 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.google.accompanist.insets.*
 import com.google.accompanist.insets.ui.TopAppBar
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.CommonStatusCodes
@@ -39,7 +37,6 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun MainScreen(
     result: State<ResultOf<AttestationStatement>>,
@@ -70,17 +67,16 @@ fun MainScreen(
                 },
                 backgroundColor = Color.Transparent,
                 elevation = 0.dp,
-                contentPadding = rememberInsetsPaddingValues(
-                    LocalWindowInsets.current.statusBars,
-                    applyBottom = false,
-                ),
+                contentPadding = WindowInsets.statusBars
+                    .only(WindowInsetsSides.Horizontal + WindowInsetsSides.Top)
+                    .asPaddingValues(),
                 modifier = Modifier.fillMaxWidth()
             )
         },
         bottomBar = {
             Spacer(
                 Modifier
-                    .navigationBarsHeight()
+                    .windowInsetsBottomHeight(WindowInsets.navigationBars)
                     .fillMaxWidth()
             )
         }
@@ -302,18 +298,13 @@ fun ResultContent(state: State<ResultOf<AttestationStatement>>) {
 
 @Composable
 fun MainPreview(attestationStatement: AttestationStatement) {
-    ProvideWindowInsets {
-        YetAnotherSafetyNetCheckerTheme {
-            val result = remember {
-                mutableStateOf(
-                    ResultOf.Success(
-                        attestationStatement
-
-                    )
-                )
-            }
-            MainScreen(result, "1 (1)")
+    YetAnotherSafetyNetCheckerTheme {
+        val result = remember {
+            mutableStateOf(
+                ResultOf.Success(attestationStatement)
+            )
         }
+        MainScreen(result, "1 (1)")
     }
 }
 

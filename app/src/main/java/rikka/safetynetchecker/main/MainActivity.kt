@@ -11,7 +11,6 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
-import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.google.android.gms.common.GoogleApiAvailability
 import kotlinx.coroutines.Dispatchers
@@ -41,38 +40,38 @@ class MainActivity : ComponentActivity() {
                     )
                 }
 
-                ProvideWindowInsets {
-                    val onRefreshClick: () -> Unit = {
-                        composableScope.launch {
-                            withContext(Dispatchers.IO) {
-                                viewModel.checkSafetyNet(this@MainActivity)
-                            }
+                val onRefreshClick: () -> Unit = {
+                    composableScope.launch {
+                        withContext(Dispatchers.IO) {
+                            viewModel.checkSafetyNet(this@MainActivity)
                         }
                     }
-                    val onLearnMoreClick: () -> Unit = {
-                        try {
-                            startActivity(
-                                Intent(Intent.ACTION_VIEW)
-                                    .setData(Uri.parse("https://developer.android.com/training/safetynet/attestation"))
-                            )
-                        } catch (e: Throwable) {
-                        }
-                    }
-                    val playServiceVersion = try {
-                        val pi = packageManager.getPackageInfo(GoogleApiAvailability.GOOGLE_PLAY_SERVICES_PACKAGE, 0)
-                        pi.versionName
-                    } catch (e: Throwable) {
-                        null
-                    }
-                    MainScreen(
-                        viewModel.result,
-                        playServiceVersion,
-                        onRefreshClick,
-                        onLearnMoreClick
-                    )
                 }
+                val onLearnMoreClick: () -> Unit = {
+                    try {
+                        startActivity(
+                            Intent(Intent.ACTION_VIEW)
+                                .setData(Uri.parse("https://developer.android.com/training/safetynet/attestation"))
+                        )
+                    } catch (_: Throwable) {
+                    }
+                }
+                val playServiceVersion = try {
+                    val pi = packageManager.getPackageInfo(
+                        GoogleApiAvailability.GOOGLE_PLAY_SERVICES_PACKAGE,
+                        0
+                    )
+                    pi.versionName
+                } catch (e: Throwable) {
+                    null
+                }
+                MainScreen(
+                    viewModel.result,
+                    playServiceVersion,
+                    onRefreshClick,
+                    onLearnMoreClick
+                )
             }
         }
     }
 }
-
