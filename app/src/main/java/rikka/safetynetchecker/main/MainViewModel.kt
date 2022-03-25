@@ -14,6 +14,8 @@ import rikka.safetynetchecker.attest.AttestationException
 import rikka.safetynetchecker.attest.AttestationStatement
 import rikka.safetynetchecker.attest.OfflineVerify
 import rikka.safetynetchecker.util.ResultOf
+import java.time.Duration
+import java.time.Instant
 import java.time.OffsetDateTime
 import java.util.*
 
@@ -48,6 +50,7 @@ class MainViewModel : ViewModel() {
         }
 
         val nonce = getNonce()
+        val requestTime = Instant.now()
 
         val key: String
         if (count < keys.size) {
@@ -66,6 +69,11 @@ class MainViewModel : ViewModel() {
                     val statement = OfflineVerify.process(it.jwsResult)
                     if (nonce != statement.nonce) {
                         throw AttestationException("Nonce does not match")
+                    }
+                    val timeout = requestTime.plus(Duration.ofSeconds(10))
+                    val statementTime = Instant.ofEpochMilli(statement.timestampMs)
+                    if (statementTime.isAfter(timeout)) {
+                        throw AttestationException("Attestation response timeout")
                     }
                     if (statement.isCtsProfileMatch) {
                         if (BuildConfig.APPLICATION_ID != statement.apkPackageName) {
