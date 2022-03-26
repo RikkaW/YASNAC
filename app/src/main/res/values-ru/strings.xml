@@ -15,4 +15,15 @@
     <string name="android_version">Версия Android</string>
     <string name="security_patch">Уровень патча безопасности</string>
     <string name="view_json">Показать JSON</string>
+    <string name="play_services_version">Версия Сервисов Google Play</string>
+
+    <string name="basic_integrity">Соблюдение базовой целостности</string>
+    <string name="cts_profile_match">Соответствие профиля CTS</string>
+    <string name="evaluation_type">Тип оценки</string>
+    <string name="hardware_backed">Аппаратное обеспечение</string>
+    <string name="basic">Базовый</string>
+    <string name="timestamp">Время проверки</string>
+    <string name="apk_digest">Хэш APK</string>
+    <string name="advice">Советы</string>
+    
 </resources>
