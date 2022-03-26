@@ -5,8 +5,8 @@
     <string name="result">Результат</string>
     <string name="success">Успешно</string>
     <string name="failed">Не удалось</string>
-    <string name="pass">Пройден</string>
-    <string name="fail">Не пройден</string>
+    <string name="pass">Пройдено</string>
+    <string name="fail">Не пройдено</string>
     <string name="please_wait">Пожалуйста, подождите…</string>
     <string name="something_went_wrong">Что-то пошло не так</string>
     <string name="api_error">Ошибка API Сервисов Google Play</string>
@@ -17,13 +17,13 @@
     <string name="view_json">Показать JSON</string>
     <string name="play_services_version">Версия Сервисов Google Play</string>
 
-    <string name="basic_integrity">Соблюдение базовой целостности</string>
-    <string name="cts_profile_match">Соответствие профиля CTS</string>
-    <string name="evaluation_type">Тип оценки</string>
-    <string name="hardware_backed">Аппаратное обеспечение</string>
-    <string name="basic">Базовый</string>
+    <string name="basic_integrity">Соблюдение целостности системы</string>
+    <string name="cts_profile_match">Соответствие профилю CTS</string>
+    <string name="evaluation_type">Метод проверки</string>
+    <string name="hardware_backed">Аппаратный (HARDWARE)</string>
+    <string name="basic">Программный (BASIC)</string>
     <string name="timestamp">Время проверки</string>
-    <string name="apk_digest">Хэш APK</string>
-    <string name="advice">Советы</string>
+    <string name="apk_digest">Хэш подписи APK</string>
+    <string name="advice">Рекомендации</string>
     
 </resources>
