@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name" translatable="false">YASNAC</string>
-    <string name="app_name_long" translatable="false">Yet Another SafetyNet Attestation Checker</string>
+    <string name="app_name_short" translatable="false">YASNAC</string>
+    <string name="app_name" translatable="false">Yet Another SafetyNet Attestation Checker</string>
     <string name="run_test_button">Run SafetyNet Attestation</string>
     <string name="learn_more_button">Learn more</string>
     <string name="result">Result</string>

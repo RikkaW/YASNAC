@@ -53,13 +53,13 @@ fun MainScreen(
                         verticalArrangement = Arrangement.Center,
                     ) {
                         Text(
-                            text = stringResource(id = R.string.app_name),
+                            text = stringResource(id = R.string.app_name_short),
                             style = MaterialTheme.typography.subtitle2,
                             fontSize = 18.sp,
                             modifier = Modifier.align(Alignment.CenterHorizontally)
                         )
                         Text(
-                            text = stringResource(id = R.string.app_name_long),
+                            text = stringResource(id = R.string.app_name),
                             style = MaterialTheme.typography.caption,
                             modifier = Modifier.align(Alignment.CenterHorizontally)
                         )
