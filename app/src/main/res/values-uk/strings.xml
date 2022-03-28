@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="run_test_button">Розпочати перевірку SafetyNet</string>
+    <string name="learn_more_button">Дізнатися більше</string>
+    <string name="result">Результат</string>
+    <string name="success">Успішно</string>
+    <string name="failed">Не вдалося</string>
+    <string name="pass">Пройдено</string>
+    <string name="fail">Не пройдено</string>
+    <string name="please_wait">Будь ласка, зачекайте…</string>
+    <string name="something_went_wrong">Щось пішло не так</string>
+    <string name="api_error">Помилка API Сервісів Google Play</string>
+    <string name="device">Пристрій</string>
+    <string name="model">Модель</string>
+    <string name="android_version">Версія Android</string>
+    <string name="security_patch">Рівень патчу безпеки</string>
+    <string name="view_json">Показати JSON</string>
+    <string name="play_services_version">Версія Сервісів Google Play</string>
+
+    <string name="basic_integrity">Дотримання цілісності системи</string>
+    <string name="cts_profile_match">Відповідність профілю CTS</string>
+    <string name="evaluation_type">Метод перевірки</string>
+    <string name="hardware_backed">Апаратний (HARDWARE)</string>
+    <string name="basic">Програмний (BASIC)</string>
+    <string name="timestamp">Час перевірки</string>
+    <string name="apk_digest">Хеш підпису APK</string>
+    <string name="advice">Рекомендації</string>
+    
+</resources>
