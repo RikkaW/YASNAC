@@ -1,10 +1,16 @@
 name: Build
 
-on: [ push, pull_request ]
+on:
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE'
+      - '**/README.md'
+  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') && github.repository_owner == 'RikkaW' }}
 
     steps:
       - name: Checkout
@@ -51,8 +57,22 @@ jobs:
           echo 'org.gradle.vfs.watch=true' >> gradle.properties
           echo 'org.gradle.jvmargs=-Xmx2048m' >> gradle.properties
           ./gradlew :app:assemble
-      - name: Upload output
+          echo "::set-output name=releaseName::`ls app/build/outputs/apk/release/yasnac-v*-release.apk | awk -F '(/|.apk)' '{print $6}'`"
+          echo "::set-output name=debugName::`ls app/build/outputs/apk/debug/yasnac-v*-debug.apk | awk -F '(/|.apk)' '{print $6}'`"
+      - name: Upload release
+        if: success()
         uses: actions/upload-artifact@v2
         with:
-          name: "yasnac ci"
-          path: "app/build/outputs"
+          name: ${{ steps.buildWithGradle.outputs.releaseName }}
+          path: "app/build/outputs/apk/release/*.apk"
+      - name: Upload debug
+        if: success()
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ steps.buildWithGradle.outputs.debugName }}
+          path: "app/build/outputs/apk/debug/*.apk"
+      - name: Upload mappings
+        uses: actions/upload-artifact@v2
+        with:
+          name: mappings
+          path: "app/build/outputs/mapping/release"
