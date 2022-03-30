@@ -44,8 +44,20 @@ class MainViewModel : ViewModel() {
 
     fun checkSafetyNet(context: Context) {
         result.value = ResultOf.Loading
-        if (GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(context, 13000000) != ConnectionResult.SUCCESS) {
-            result.value = (ResultOf.Failure(AttestationException("Requires Google Play Services v13.0 or above")))
+        GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(context, 13000000).let {
+            if (it == ConnectionResult.SUCCESS) {
+                return@let
+            }
+
+            val reason = when (it) {
+                ConnectionResult.SERVICE_MISSING -> "Google Play services is missing on this device."
+                ConnectionResult.SERVICE_UPDATING -> "Google Play services is missing on this device."
+                ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED -> "The installed version of Google Play services is out of date."
+                ConnectionResult.SERVICE_DISABLED -> "The installed version of Google Play services has been disabled on this device."
+                ConnectionResult.SERVICE_INVALID -> "The version of the Google Play services installed on this device is not authentic."
+                else -> "Unknown result $it."
+            }
+            result.value = (ResultOf.Failure(AttestationException(reason)))
             return
         }
 
