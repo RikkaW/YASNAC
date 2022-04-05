@@ -15,7 +15,10 @@ In the production environment, the response of the SafetyNet Attestation API sho
 
 ## Download
 
+[Google Play](https://play.google.com/store/apps/details?id=rikka.safetynetchecker)
 [GitHub release](https://github.com/RikkaW/YASNAC/releases/latest)
+
+Some users report that attestations always fail for "The version of the Google Play services installed on this device is not authentic". This could be solved by installing the app from Google Play. See [#24](https://github.com/RikkaW/YASNAC/issues/24) [#22](https://github.com/RikkaW/YASNAC/issues/22).
 
 Release apk uses our API key, which has a quota of 10,000 times per day. The quota is shared across all users. If the quota is exhausted, you will see an error.
 
