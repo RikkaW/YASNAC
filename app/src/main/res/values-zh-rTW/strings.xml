@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="run_test_button">執行 SafetyNet 認證</string>
+    <string name="learn_more_button">瞭解更多</string>
+    <string name="result">結果</string>
+    <string name="success">成功</string>
+    <string name="failed">失敗</string>
+    <string name="pass">透過</string>
+    <string name="fail">失敗</string>
+    <string name="please_wait">請等待…</string>
+    <string name="something_went_wrong">出了些問題</string>
+    <string name="api_error">Google Play 服務 API 錯誤</string>
+    <string name="device">裝置</string>
+    <string name="model">型號</string>
+    <string name="android_version">Android 版本</string>
+    <string name="security_patch">安全補丁級別</string>
+    <string name="view_json">檢視 JSON</string>
+    <string name="play_services_version">Google Play 服務版本</string>
+
+    <string name="basic_integrity">滿足基本完整性</string>
+    <string name="cts_profile_match">匹配 CTS 配置檔案</string>
+    <string name="evaluation_type">評估型別</string>
+    <string name="hardware_backed">硬體支援</string>
+    <string name="basic">基本</string>
+    <string name="timestamp">時間戳</string>
+    <string name="apk_digest">APK 摘要</string>
+    <string name="advice">建議</string>
+
+</resources>
