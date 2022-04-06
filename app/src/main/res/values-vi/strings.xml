@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="run_test_button">Chạy Chứng nhận SafetyNet</string>
+    <string name="learn_more_button">Tìm hiểu thêm</string>
+    <string name="result">Kết quả</string>
+    <string name="success">Thành công</string>
+    <string name="failed">Thất bại</string>
+    <string name="pass">Qua</string>
+    <string name="fail">Thất bại</string>
+    <string name="please_wait">Vui lòng đợi…</string>
+    <string name="something_went_wrong">Có gì đó sai</string>
+    <string name="api_error">Lỗi API Dịch vụ Google Play</string>
+    <string name="device">Thiết bị</string>
+    <string name="model">Kiểu</string>
+    <string name="android_version">Phiên bản Android</string>
+    <string name="security_patch">Cấp độ vá bảo mật</string>
+    <string name="view_json">Xem JSON</string>
+    <string name="play_services_version">Phiên bản Dịch vụ Google Play</string>
+    <string name="basic_integrity">Tính toàn vẹn cơ bản</string>
+    <string name="cts_profile_match">Ghép hồ sơ CTS</string>
+    <string name="evaluation_type">Loại đánh giá</string>
+    <string name="hardware_backed">PHẦN CỨNG ĐƯỢC HỖ TRỢ</string>
+    <string name="basic">CƠ BẢN</string>
+    <string name="timestamp">Dấu thời gian</string>
+    <string name="apk_digest">Thông báo Apk</string>
+    <string name="advice">Lời khuyên</string>
+</resources>
