@@ -51,7 +51,7 @@ class MainViewModel : ViewModel() {
 
             val reason = when (it) {
                 ConnectionResult.SERVICE_MISSING -> "Google Play services is missing on this device."
-                ConnectionResult.SERVICE_UPDATING -> "Google Play services is missing on this device."
+                ConnectionResult.SERVICE_UPDATING -> "Google Play service is currently being updated on this device."
                 ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED -> "The installed version of Google Play services is out of date."
                 ConnectionResult.SERVICE_DISABLED -> "The installed version of Google Play services has been disabled on this device."
                 ConnectionResult.SERVICE_INVALID -> "The version of the Google Play services installed on this device is not authentic."
