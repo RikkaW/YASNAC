@@ -22,5 +22,6 @@
     <string name="hardware_backed">HARDWARE_BACKED</string>
     <string name="basic">BASIC</string>
     <string name="timestamp">Waktu</string>
-    <string name="apk_digest">Apk digest</string>
+    <string name="apk_digest">Intisari Apk</string>
+    <string name="advice">Saran</string>
 </resources>
