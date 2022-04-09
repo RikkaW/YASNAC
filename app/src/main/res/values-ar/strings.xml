@@ -1,2 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="advice">النصيحة</string>
+    <string name="apk_digest">ملخص APK</string>
+    <string name="timestamp">الطابع الزمني</string>
+    <string name="evaluation_type">نوع التقييم</string>
+    <string name="cts_profile_match">تطابق ملف تعريف CTS</string>
+    <string name="basic_integrity">السلامة الأساسية</string>
+    <string name="play_services_version">إصدار خدمات Google Play</string>
+    <string name="view_json">مشاهدة ملف JSON</string>
+    <string name="security_patch">مستوى تصحيح الأمان</string>
+    <string name="android_version">نسخة أندرويد</string>
+    <string name="model">نوع جهازك</string>
+    <string name="device">معلومات عن الهاتف</string>
+    <string name="api_error">خطأ API في خدمات Google Play</string>
+    <string name="something_went_wrong">هناك خطأ ما</string>
+    <string name="please_wait">ارجوك انتظر…</string>
+    <string name="fail">يفشل</string>
+    <string name="pass">نجح</string>
+    <string name="failed">فـشـل</string>
+    <string name="success">نجاح</string>
+    <string name="result">نتيجة</string>
+    <string name="learn_more_button">تعرف على المزيد</string>
+    <string name="run_test_button">قم بفحص شهادة SafetyNet</string>
+</resources>
