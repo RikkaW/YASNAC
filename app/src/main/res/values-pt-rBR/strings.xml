@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="run_test_button">Atestar SafetyNet</string>
     <string name="learn_more_button">Aprender mais</string>
@@ -14,4 +15,6 @@
     <string name="android_version">Versão do Android</string>
     <string name="security_patch">Nível do patch de segurança</string>
     <string name="view_json">Ver JSON</string>
+    <string name="basic_integrity">Integridade básica</string>
+    <string name="play_services_version">Versão do Google Play Services</string>
 </resources>
