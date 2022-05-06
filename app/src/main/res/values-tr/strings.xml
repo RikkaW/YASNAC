@@ -15,4 +15,13 @@
   <string name="android_version">Android sürümü</string>
   <string name="security_patch">Güvenlik yama seviyesi</string>
   <string name="view_json">JSON\'u görüntüle</string>
+  <string name="play_services_version">Google Play Hizmetleri versiyonu</string>
+  <string name="basic_integrity">Temel Bütünlük</string>
+  <string name="cts_profile_match">CTS Profili Uyumlu</string>
+  <string name="evaluation_type">Deneme Tipi</string>
+  <string name="hardware_backed">DONANIM_TABANLI</string>
+  <string name="basic">TEMEL</string>
+  <string name="timestamp">Zaman Damgası</string>
+  <string name="apk_digest">Apk özeti</string>
+  <string name="advice">Tavsiye Et</string>
 </resources>
