@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="apk_digest">Assinatura do apk</string>
+    <string name="advice">Conselho</string>
+    <string name="timestamp">Data de execução</string>
+    <string name="basic">BÁSICO</string>
+    <string name="hardware_backed">HARDWARE_APOIADO</string>
+    <string name="evaluation_type">Tipo de avaliação</string>
+    <string name="cts_profile_match">Correspondência de perfil CTS</string>
+    <string name="basic_integrity">Integridade básica</string>
+    <string name="play_services_version">Versão do Google Play Services</string>
+    <string name="view_json">Ver JSON</string>
+    <string name="security_patch">Nível de patch de segurança</string>
+    <string name="android_version">Versão do Android</string>
+    <string name="model">Modelo</string>
+    <string name="device">Dispositivo</string>
+    <string name="api_error">Erro da API do Google Play Services</string>
+    <string name="something_went_wrong">Algo deu errado</string>
+    <string name="please_wait">Aguarde…</string>
+    <string name="fail">Falha</string>
+    <string name="pass">Passou</string>
+    <string name="failed">Falhou</string>
+    <string name="success">Sucesso</string>
+    <string name="result">Resultado</string>
+    <string name="learn_more_button">Ler mais</string>
+    <string name="run_test_button">Executar o Atestado SafetyNet</string>
+</resources>
