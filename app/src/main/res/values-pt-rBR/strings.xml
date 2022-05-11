@@ -17,4 +17,11 @@
     <string name="view_json">Ver JSON</string>
     <string name="basic_integrity">Integridade básica</string>
     <string name="play_services_version">Versão do Google Play Services</string>
+    <string name="apk_digest">APK digerido</string>
+    <string name="advice">Dispositivo</string>
+    <string name="timestamp">Carimbo de data e hora</string>
+    <string name="basic">BASIC</string>
+    <string name="hardware_backed">HARDWARE_BACKED</string>
+    <string name="evaluation_type">Tipo de avaliação</string>
+    <string name="cts_profile_match">Correspondência de perfil CTS</string>
 </resources>
