@@ -8,7 +8,7 @@
     <string name="fail">失敗</string>
     <string name="please_wait">お待ちください…</string>
     <string name="something_went_wrong">何かがおかしいようです</string>
-    <string name="api_error">Google Play サービスAPIエラー</string>
+    <string name="api_error">Google PlayサービスAPIエラー</string>
     <string name="device">デバイス</string>
     <string name="model">モデル</string>
     <string name="android_version">Androidのバージョン</string>
