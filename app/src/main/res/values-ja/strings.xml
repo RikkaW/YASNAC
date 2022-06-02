@@ -1,0 +1,28 @@
+<resources>
+    <string name="run_test_button">SafetyNetの認証を実行</string>
+    <string name="learn_more_button">詳細を表示</string>
+    <string name="result">結果</string>
+    <string name="success">成功しました</string>
+    <string name="failed">失敗しました</string>
+    <string name="pass">パス</string>
+    <string name="fail">失敗</string>
+    <string name="please_wait">お待ちください…</string>
+    <string name="something_went_wrong">何かがおかしいようです</string>
+    <string name="api_error">Google Play サービスAPIエラー</string>
+    <string name="device">デバイス</string>
+    <string name="model">モデル</string>
+    <string name="android_version">Androidのバージョン</string>
+    <string name="security_patch">セキュリティパッチレベル</string>
+    <string name="view_json">JSONを表示</string>
+    <string name="play_services_version">Google Playサービスのバージョン</string>
+
+    <string name="basic_integrity">基本的な整合性</string>
+    <string name="cts_profile_match">CTSプロファイルマッチ</string>
+    <string name="evaluation_type">評価の種類</string>
+    <string name="hardware_backed">HARDWARE_BACKED</string>
+    <string name="basic">BASIC</string>
+    <string name="timestamp">タイムスタンプ</string>
+    <string name="apk_digest">APKダイジェスト</string>
+    <string name="advice">アドバイス</string>
+
+</resources>
