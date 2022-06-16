@@ -101,7 +101,7 @@ class MainViewModel : ViewModel() {
                     }
                     val timeout = requestTime.plus(Duration.ofSeconds(10))
                     val statementTime = Instant.ofEpochMilli(statement.timestampMs)
-                    if (statementTime.isAfter(timeout)) {
+                    if (statementTime.isAfter(timeout) || statementTime.isBefore(requestTime)) {
                         throw AttestationException(context.getString(R.string.error_statement_timeout))
                     }
                     if (statement.isCtsProfileMatch) {
