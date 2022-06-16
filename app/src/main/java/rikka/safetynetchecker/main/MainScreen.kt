@@ -80,11 +80,12 @@ fun MainScreen(
                     .fillMaxWidth()
             )
         }
-    ) {
+    ) { padding ->
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
                 .fillMaxWidth()
+                .padding(padding)
         ) {
             Column(
                 modifier = Modifier

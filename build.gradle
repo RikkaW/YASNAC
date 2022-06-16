@@ -8,15 +8,15 @@ import java.util.stream.StreamSupport
 
 buildscript {
     ext {
-        compose_version = '1.2.0-alpha06'
-        accompanist_version = '0.24.5-alpha'
+        compose_version = '1.2.0-rc01'
+        accompanist_version = '0.24.11-rc'
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath 'org.eclipse.jgit:org.eclipse.jgit:6.1.0.202203080745-r'
+        classpath 'org.eclipse.jgit:org.eclipse.jgit:6.2.0.202206071550-r'
     }
 }
 
