@@ -17,8 +17,6 @@
     <string name="please_wait">ارجوك انتظر…</string>
     <string name="fail">يفشل</string>
     <string name="pass">نجح</string>
-    <string name="failed">فـشـل</string>
-    <string name="success">نجاح</string>
     <string name="result">نتيجة</string>
     <string name="learn_more_button">تعرف على المزيد</string>
     <string name="run_test_button">قم بفحص شهادة SafetyNet</string>

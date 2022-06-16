@@ -19,8 +19,6 @@
     <string name="please_wait">Bitte warten…</string>
     <string name="fail">Fehlgeschlagen</string>
     <string name="pass">Bestanden</string>
-    <string name="failed">Gescheitert</string>
-    <string name="success">Erfolg</string>
     <string name="result">Ergebnis</string>
     <string name="learn_more_button">Mehr erfahren</string>
     <string name="run_test_button">SafetyNet-Attestation ausführen</string>

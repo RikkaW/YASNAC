@@ -3,8 +3,6 @@
     <string name="run_test_button">运行 SafetyNet 认证</string>
     <string name="learn_more_button">了解更多</string>
     <string name="result">结果</string>
-    <string name="success">成功</string>
-    <string name="failed">失败</string>
     <string name="pass">通过</string>
     <string name="fail">失败</string>
     <string name="please_wait">请等待…</string>

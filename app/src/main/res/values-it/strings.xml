@@ -2,8 +2,6 @@
     <string name="run_test_button">Esegui l\'attestazione SafetyNet</string>
     <string name="learn_more_button">Per saperne di più</string>
     <string name="result">Risultato</string>
-    <string name="success">Successo</string>
-    <string name="failed">Fallimento</string>
     <string name="pass">Superato</string>
     <string name="fail">Fallito</string>
     <string name="please_wait">Attendere…</string>

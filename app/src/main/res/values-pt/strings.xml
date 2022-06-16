@@ -19,8 +19,6 @@
     <string name="please_wait">Aguarde…</string>
     <string name="fail">Falha</string>
     <string name="pass">Passou</string>
-    <string name="failed">Falhou</string>
-    <string name="success">Sucesso</string>
     <string name="result">Resultado</string>
     <string name="learn_more_button">Ler mais</string>
     <string name="run_test_button">Executar o Atestado SafetyNet</string>

@@ -3,8 +3,6 @@
     <string name="run_test_button">Atestar SafetyNet</string>
     <string name="learn_more_button">Aprender mais</string>
     <string name="result">Resultado</string>
-    <string name="success">Sucesso</string>
-    <string name="failed">Falhou</string>
     <string name="pass">Passou</string>
     <string name="fail">Falha</string>
     <string name="please_wait">Favor aguarde…</string>

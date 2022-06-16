@@ -3,8 +3,6 @@
     <string name="run_test_button">Mulai Pemeriksaan SafetyNet</string>
     <string name="learn_more_button">Lebih lanjut</string>
     <string name="result">Hasil</string>
-    <string name="success">Sukses</string>
-    <string name="failed">Gagal</string>
     <string name="pass">Lulus</string>
     <string name="fail">Gagal</string>
     <string name="please_wait">Harap tunggu…</string>
