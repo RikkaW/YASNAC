@@ -38,12 +38,11 @@ class MainActivity : ComponentActivity() {
                     viewModel.checkSafetyNet(this@MainActivity)
                 }
                 val onLearnMoreClick: () -> Unit = {
-                    try {
+                    runCatching {
                         startActivity(
                             Intent(Intent.ACTION_VIEW)
                                 .setData(Uri.parse("https://developer.android.com/training/safetynet/attestation"))
                         )
-                    } catch (_: Throwable) {
                     }
                 }
                 val playServiceVersion = try {
