@@ -13,8 +13,9 @@ if (localPropFile.exists()) {
 }
 
 android {
-    compileSdk 32
-    buildToolsVersion '32.0.0'
+    compileSdk 33
+    buildToolsVersion '33.0.0'
+    namespace "rikka.safetynetchecker"
     signingConfigs {
         sign {
             storeFile properties.getProperty("storeFile") != null ? file(properties.getProperty("storeFile")) : android.signingConfigs.debug.storeFile
@@ -24,9 +25,8 @@ android {
         }
     }
     defaultConfig {
-        applicationId "rikka.safetynetchecker"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode version_code
         versionName version_name
         buildConfigField "String[]", "API_KEY", "{\"${properties.getProperty("apiKey", "")}\"}"
@@ -86,7 +86,7 @@ android.applicationVariants.all { variant ->
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.activity:activity-compose:1.4.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
 
@@ -99,7 +99,7 @@ dependencies {
     implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
 
     implementation 'com.google.android.gms:play-services-safetynet:18.0.1'
-    implementation('com.google.http-client:google-http-client-android:1.41.4') {
+    implementation('com.google.http-client:google-http-client-android:1.42.0') {
         exclude group: 'org.apache.httpcomponents'
     }
 
@@ -117,6 +117,6 @@ configurations.all {
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
     kotlinOptions {
-        freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+        freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
     }
 }
