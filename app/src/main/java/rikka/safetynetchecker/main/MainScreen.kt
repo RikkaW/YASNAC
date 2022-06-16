@@ -27,6 +27,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.CommonStatusCodes
 import rikka.safetynetchecker.BuildConfig
 import rikka.safetynetchecker.R
+import rikka.safetynetchecker.attest.AttestationException
 import rikka.safetynetchecker.attest.AttestationStatement
 import rikka.safetynetchecker.attest.OfflineVerify
 import rikka.safetynetchecker.icon.OpenInNew
@@ -283,10 +284,16 @@ fun FailureContentPreview() {
 fun FailureContent(e: Throwable) {
     val resId = if (e is ApiException) R.string.api_error else R.string.something_went_wrong
     MainCardTitle(text = stringResource(resId))
-    if (e is ApiException) {
-        Text(text = "${e.statusCode}: ${CommonStatusCodes.getStatusCodeString(e.statusCode)}")
-    } else {
-        Text(text = e.message ?: e.stackTraceToString())
+    when (e) {
+        is ApiException -> {
+            Text(text = "${e.statusCode}: ${CommonStatusCodes.getStatusCodeString(e.statusCode)}")
+        }
+        is AttestationException -> {
+            Text(text = e.message)
+        }
+        else -> {
+            Text(text = e.stackTraceToString())
+        }
     }
 }
 
