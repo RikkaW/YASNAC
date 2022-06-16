@@ -11,6 +11,7 @@ import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.safetynet.SafetyNet
 import com.google.android.gms.security.ProviderInstaller
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import rikka.safetynetchecker.BuildConfig
@@ -47,7 +48,10 @@ class MainViewModel : ViewModel() {
         return s
     }
 
-    fun checkSafetyNet(context: Context) = viewModelScope.launch(Dispatchers.IO) {
+    fun checkSafetyNet(context: Context) = viewModelScope.launch(
+        Dispatchers.IO + CoroutineExceptionHandler { _, e ->
+            result.value = ResultOf.Failure(e)
+        }) {
         result.value = ResultOf.Loading
 
         val availability = GoogleApiAvailability.getInstance()
