@@ -10,6 +10,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.safetynet.SafetyNet
+import com.google.android.gms.security.ProviderInstaller
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import rikka.safetynetchecker.BuildConfig
@@ -66,6 +67,15 @@ class MainViewModel : ViewModel() {
             return@launch
         }
 
+        try {
+            ProviderInstaller.installIfNeeded(context)
+        } catch (e: Exception) {
+            Log.w(TAG, "GmsProviderInstaller: ", e)
+            val wrap = AttestationException("Failed to install GMS provider.", e)
+            result.value = ResultOf.Failure(wrap)
+            return@launch
+        }
+
         val nonce = getNonce()
         val requestTime = Instant.now()
 
@@ -85,19 +95,19 @@ class MainViewModel : ViewModel() {
                 try {
                     val statement = OfflineVerify.process(it.jwsResult)
                     if (nonce != statement.nonce) {
-                        throw AttestationException("Nonce does not match")
+                        throw AttestationException("Nonce does not match.")
                     }
                     val timeout = requestTime.plus(Duration.ofSeconds(10))
                     val statementTime = Instant.ofEpochMilli(statement.timestampMs)
                     if (statementTime.isAfter(timeout)) {
-                        throw AttestationException("Attestation response timeout")
+                        throw AttestationException("Attestation response timeout.")
                     }
                     if (statement.isCtsProfileMatch) {
                         if (BuildConfig.APPLICATION_ID != statement.apkPackageName) {
-                            throw AttestationException("Application id does not match")
+                            throw AttestationException("Application id does not match.")
                         }
                         if (!statement.apkCertificateDigestSha256.contains(BuildConfig.certificateDigest)) {
-                            throw AttestationException("Apk certificate does not match")
+                            throw AttestationException("Apk certificate does not match.")
                         }
                     }
 
