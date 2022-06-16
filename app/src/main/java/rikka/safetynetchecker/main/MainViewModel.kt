@@ -6,9 +6,12 @@ import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.safetynet.SafetyNet
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import rikka.safetynetchecker.BuildConfig
 import rikka.safetynetchecker.attest.AttestationException
 import rikka.safetynetchecker.attest.AttestationStatement
@@ -42,9 +45,11 @@ class MainViewModel : ViewModel() {
         return s
     }
 
-    fun checkSafetyNet(context: Context) {
+    fun checkSafetyNet(context: Context) = viewModelScope.launch(Dispatchers.IO) {
         result.value = ResultOf.Loading
-        GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(context, 13000000).let {
+
+        val availability = GoogleApiAvailability.getInstance()
+        availability.isGooglePlayServicesAvailable(context, 13000000).let {
             if (it == ConnectionResult.SUCCESS) {
                 return@let
             }
@@ -55,10 +60,10 @@ class MainViewModel : ViewModel() {
                 ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED -> "The installed version of Google Play services is out of date."
                 ConnectionResult.SERVICE_DISABLED -> "The installed version of Google Play services has been disabled on this device."
                 ConnectionResult.SERVICE_INVALID -> "The version of the Google Play services installed on this device is not authentic."
-                else -> "Unknown result $it."
+                else -> "Unknown result ${availability.getErrorString(it)}."
             }
-            result.value = (ResultOf.Failure(AttestationException(reason)))
-            return
+            result.value = ResultOf.Failure(AttestationException(reason))
+            return@launch
         }
 
         val nonce = getNonce()
@@ -96,15 +101,15 @@ class MainViewModel : ViewModel() {
                         }
                     }
 
-                    result.value = (ResultOf.Success(statement))
+                    result.value = ResultOf.Success(statement)
                 } catch (e: AttestationException) {
                     Log.w(TAG, "OfflineVerify: ", e)
-                    result.value = (ResultOf.Failure(e))
+                    result.value = ResultOf.Failure(e)
                 }
             }
             .addOnFailureListener { e ->
                 Log.w(TAG, "checkSafetyNet: ", e)
-                result.value = (ResultOf.Failure(e))
+                result.value = ResultOf.Failure(e)
             }
     }
 

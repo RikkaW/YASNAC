@@ -8,14 +8,10 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.SideEffect
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.google.android.gms.common.GoogleApiAvailability
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import rikka.safetynetchecker.theme.YetAnotherSafetyNetCheckerTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,8 +23,6 @@ class MainActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
-            val composableScope = rememberCoroutineScope()
-
             YetAnotherSafetyNetCheckerTheme {
                 val systemUiController = rememberSystemUiController()
                 val useDarkIcons = MaterialTheme.colors.isLight
@@ -41,11 +35,7 @@ class MainActivity : ComponentActivity() {
                 }
 
                 val onRefreshClick: () -> Unit = {
-                    composableScope.launch {
-                        withContext(Dispatchers.IO) {
-                            viewModel.checkSafetyNet(this@MainActivity)
-                        }
-                    }
+                    viewModel.checkSafetyNet(this@MainActivity)
                 }
                 val onLearnMoreClick: () -> Unit = {
                     try {
