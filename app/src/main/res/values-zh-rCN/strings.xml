@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="run_test_button">运行 SafetyNet 认证</string>
+
+
+    <string name="run_test_button">运行 SafetyNet 证明</string>
     <string name="learn_more_button">了解更多</string>
     <string name="result">结果</string>
     <string name="pass">通过</string>
@@ -23,5 +24,21 @@
     <string name="timestamp">时间戳</string>
     <string name="apk_digest">APK 摘要</string>
     <string name="advice">建议</string>
+
+    <string name="error_gms_missing">Google Play 服务不存在。</string>
+    <string name="error_gms_updating">Google Play 服务正在更新中，稍后再试。</string>
+    <string name="error_gms_version_update_required">Google Play 服务已过期，需要更新。</string>
+    <string name="error_gms_disabled">Google Play 服务被禁用。</string>
+    <string name="error_gms_invalid">Google Play 服务不是正版。</string>
+    <string name="error_gms_unknown">Google Play 服务未知状态：%1$s。</string>
+    <string name="error_gms_provider">Google Play 服务安全提供程序安装失败。</string>
+    <string name="error_statement_nonce">一次性令牌不匹配。</string>
+    <string name="error_statement_timeout">响应时间超出允许范围，请重试。</string>
+    <string name="error_statement_package_name">应用包名不匹配。</string>
+    <string name="error_statement_certificate">应用签名证书不匹配。</string>
+    <string name="error_verify_invalid_json">JWS 格式无效。</string>
+    <string name="error_verify_null_cert">JWS 签名无效。</string>
+    <string name="error_verify_invalid_cert">JWS 签名验证异常。</string>
+    <string name="error_verify_hostname">JWS 签名证书错误。</string>
 
 </resources>
