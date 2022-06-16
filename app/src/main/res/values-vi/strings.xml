@@ -3,8 +3,6 @@
     <string name="run_test_button">Chạy Chứng nhận SafetyNet</string>
     <string name="learn_more_button">Tìm hiểu thêm</string>
     <string name="result">Kết quả</string>
-    <string name="success">Thành công</string>
-    <string name="failed">Thất bại</string>
     <string name="pass">Qua</string>
     <string name="fail">Thất bại</string>
     <string name="please_wait">Vui lòng đợi…</string>

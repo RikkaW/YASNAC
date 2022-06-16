@@ -3,8 +3,6 @@
     <string name="run_test_button">Розпочати перевірку SafetyNet</string>
     <string name="learn_more_button">Дізнатися більше</string>
     <string name="result">Результат</string>
-    <string name="success">Успішно</string>
-    <string name="failed">Не вдалося</string>
     <string name="pass">Пройдено</string>
     <string name="fail">Не пройдено</string>
     <string name="please_wait">Будь ласка, зачекайте…</string>
@@ -25,5 +23,5 @@
     <string name="timestamp">Час перевірки</string>
     <string name="apk_digest">Хеш підпису APK</string>
     <string name="advice">Рекомендації</string>
-    
+
 </resources>

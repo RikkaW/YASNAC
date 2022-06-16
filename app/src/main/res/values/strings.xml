@@ -4,8 +4,6 @@
     <string name="run_test_button">Run SafetyNet Attestation</string>
     <string name="learn_more_button">Learn more</string>
     <string name="result">Result</string>
-    <string name="success">Success</string>
-    <string name="failed">Failed</string>
     <string name="pass">Pass</string>
     <string name="fail">Fail</string>
     <string name="please_wait">Please wait…</string>

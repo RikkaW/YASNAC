@@ -3,8 +3,6 @@
     <string name="run_test_button">執行 SafetyNet 認證</string>
     <string name="learn_more_button">瞭解更多</string>
     <string name="result">結果</string>
-    <string name="success">成功</string>
-    <string name="failed">失敗</string>
     <string name="pass">透過</string>
     <string name="fail">失敗</string>
     <string name="please_wait">請等待…</string>

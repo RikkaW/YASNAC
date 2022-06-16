@@ -3,9 +3,7 @@
   <string name="run_test_button">SafetyNet Onaylamayı Çalıştır</string>
   <string name="learn_more_button">Daha fazla bilgi edin</string>
   <string name="result">Sonuç</string>
-  <string name="success">Başarılı</string>
-  <string name="failed">Başarısız</string>
-  <string name="pass">Geçti</string>
+    <string name="pass">Geçti</string>
   <string name="fail">Kaldı</string>
   <string name="please_wait">Lütfen bekleyin…</string>
   <string name="something_went_wrong">Bir şeyler ters gitti</string>

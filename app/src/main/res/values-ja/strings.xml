@@ -2,8 +2,6 @@
     <string name="run_test_button">SafetyNetの認証を実行</string>
     <string name="learn_more_button">詳細を表示</string>
     <string name="result">結果</string>
-    <string name="success">成功しました</string>
-    <string name="failed">失敗しました</string>
     <string name="pass">パス</string>
     <string name="fail">失敗</string>
     <string name="please_wait">お待ちください…</string>
