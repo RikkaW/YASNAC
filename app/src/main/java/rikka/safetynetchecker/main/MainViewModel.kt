@@ -14,6 +14,7 @@ import com.google.android.gms.security.ProviderInstaller
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import rikka.safetynetchecker.BuildConfig
+import rikka.safetynetchecker.R
 import rikka.safetynetchecker.attest.AttestationException
 import rikka.safetynetchecker.attest.AttestationStatement
 import rikka.safetynetchecker.attest.OfflineVerify
@@ -55,14 +56,15 @@ class MainViewModel : ViewModel() {
                 return@let
             }
 
-            val reason = when (it) {
-                ConnectionResult.SERVICE_MISSING -> "Google Play services is missing on this device."
-                ConnectionResult.SERVICE_UPDATING -> "Google Play service is currently being updated on this device."
-                ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED -> "The installed version of Google Play services is out of date."
-                ConnectionResult.SERVICE_DISABLED -> "The installed version of Google Play services has been disabled on this device."
-                ConnectionResult.SERVICE_INVALID -> "The version of the Google Play services installed on this device is not authentic."
-                else -> "Unknown result ${availability.getErrorString(it)}."
+            val id = when (it) {
+                ConnectionResult.SERVICE_MISSING -> R.string.error_gms_missing
+                ConnectionResult.SERVICE_UPDATING -> R.string.error_gms_updating
+                ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED -> R.string.error_gms_version_update_required
+                ConnectionResult.SERVICE_DISABLED -> R.string.error_gms_disabled
+                ConnectionResult.SERVICE_INVALID -> R.string.error_gms_invalid
+                else -> R.string.error_gms_unknown
             }
+            val reason = context.getString(id, availability.getErrorString(it))
             result.value = ResultOf.Failure(AttestationException(reason))
             return@launch
         }
@@ -71,7 +73,7 @@ class MainViewModel : ViewModel() {
             ProviderInstaller.installIfNeeded(context)
         } catch (e: Exception) {
             Log.w(TAG, "GmsProviderInstaller: ", e)
-            val wrap = AttestationException("Failed to install GMS provider.", e)
+            val wrap = AttestationException(context.getString(R.string.error_gms_provider), e)
             result.value = ResultOf.Failure(wrap)
             return@launch
         }
@@ -93,21 +95,21 @@ class MainViewModel : ViewModel() {
             .attest(nonce.toByteArray(), key)
             .addOnSuccessListener {
                 try {
-                    val statement = OfflineVerify.process(it.jwsResult)
+                    val statement = OfflineVerify.process(context, it.jwsResult)
                     if (nonce != statement.nonce) {
-                        throw AttestationException("Nonce does not match.")
+                        throw AttestationException(context.getString(R.string.error_statement_nonce))
                     }
                     val timeout = requestTime.plus(Duration.ofSeconds(10))
                     val statementTime = Instant.ofEpochMilli(statement.timestampMs)
                     if (statementTime.isAfter(timeout)) {
-                        throw AttestationException("Attestation response timeout.")
+                        throw AttestationException(context.getString(R.string.error_statement_timeout))
                     }
                     if (statement.isCtsProfileMatch) {
                         if (BuildConfig.APPLICATION_ID != statement.apkPackageName) {
-                            throw AttestationException("Application id does not match.")
+                            throw AttestationException(context.getString(R.string.error_statement_package_name))
                         }
                         if (!statement.apkCertificateDigestSha256.contains(BuildConfig.certificateDigest)) {
-                            throw AttestationException("Apk certificate does not match.")
+                            throw AttestationException(context.getString(R.string.error_statement_certificate))
                         }
                     }
 
