@@ -24,4 +24,20 @@
     <string name="apk_digest">Хэш подписи APK</string>
     <string name="advice">Рекомендации</string>
 
+    <string name="error_gms_missing">Сервисы Google Play не установлены.</string>
+    <string name="error_gms_updating">Сервисы Google Play в процессе обновления.</string>
+    <string name="error_gms_version_update_required">Установлена устаревшая версия Сервисов Google Play.</string>
+    <string name="error_gms_disabled">Сервисы Google Play отключены.</string>
+    <string name="error_gms_invalid">Установлена неоригинальная (модифицированная) версия Сервисов Google Play.</string>
+    <string name="error_gms_unknown">Неизвестный результат %1$s.</string>
+    <string name="error_gms_provider">Ошибка установки GMS провайдера.</string>
+    <string name="error_statement_nonce">Случайный код (nonce) не совпадает.</string>
+    <string name="error_statement_timeout">Время ожидания ответа проверки аттестации истекло.</string>
+    <string name="error_statement_package_name">ID приложения не совпадает.</string>
+    <string name="error_statement_certificate">Сертификат APK не совпадает.</string>
+    <string name="error_verify_invalid_json">Недействительный формат JWS.</string>
+    <string name="error_verify_null_cert">Ошибка проверки подписи.</string>
+    <string name="error_verify_invalid_cert">Ошибка при криптографической проверке подписи JWS.</string>
+    <string name="error_verify_hostname">Сертификат не выдан для домена attest.android.com.</string>
+
 </resources>
