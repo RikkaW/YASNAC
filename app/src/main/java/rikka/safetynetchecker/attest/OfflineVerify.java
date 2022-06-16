@@ -1,5 +1,7 @@
 package rikka.safetynetchecker.attest;
 
+import android.content.Context;
+
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.json.webtoken.JsonWebSignature;
 
@@ -12,8 +14,11 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSessionContext;
 
+import rikka.safetynetchecker.R;
+
 public class OfflineVerify {
-    public static AttestationStatement process(String signedAttestationStatement) throws AttestationException {
+    public static AttestationStatement process(
+            Context context, String signedAttestationStatement) throws AttestationException {
         JsonWebSignature jws;
         try {
             jws = JsonWebSignature
@@ -21,17 +26,17 @@ public class OfflineVerify {
                     .setPayloadClass(AttestationStatement.class)
                     .parse(signedAttestationStatement);
         } catch (Exception e) {
-            throw new AttestationException("Not valid JWS format.", e);
+            throw new AttestationException(context.getString(R.string.error_verify_invalid_json), e);
         }
 
         X509Certificate cert;
         try {
             cert = jws.verifySignature();
             if (cert == null) {
-                throw new AttestationException("Signature verification failed.");
+                throw new AttestationException(context.getString(R.string.error_verify_null_cert));
             }
         } catch (GeneralSecurityException e) {
-            throw new AttestationException("Error during cryptographic verification of the JWS signature.", e);
+            throw new AttestationException(context.getString(R.string.error_verify_invalid_cert), e);
         }
 
         var sslSession = new FakeSSLSession() {
@@ -42,7 +47,7 @@ public class OfflineVerify {
         };
         var verifier = HttpsURLConnection.getDefaultHostnameVerifier();
         if (!verifier.verify("attest.android.com", sslSession)) {
-            throw new AttestationException("Certificate isn't issued for the hostname attest.android.com.");
+            throw new AttestationException(context.getString(R.string.error_verify_hostname));
         }
 
         return (AttestationStatement) jws.getPayload();

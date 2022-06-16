@@ -25,4 +25,20 @@
     <string name="apk_digest">Apk digest</string>
     <string name="advice">Advice</string>
 
+    <string name="error_gms_missing">Google Play services is missing on this device.</string>
+    <string name="error_gms_updating">Google Play service is currently being updated on this device.</string>
+    <string name="error_gms_version_update_required">The installed version of Google Play services is out of date.</string>
+    <string name="error_gms_disabled">The installed version of Google Play services has been disabled on this device.</string>
+    <string name="error_gms_invalid">The version of the Google Play services installed on this device is not authentic.</string>
+    <string name="error_gms_unknown">Unknown result %1$s.</string>
+    <string name="error_gms_provider">Failed to install GMS provider.</string>
+    <string name="error_statement_nonce">Nonce does not match.</string>
+    <string name="error_statement_timeout">Attestation response timeout.</string>
+    <string name="error_statement_package_name">Application id does not match.</string>
+    <string name="error_statement_certificate">Apk certificate does not match.</string>
+    <string name="error_verify_invalid_json">Not valid JWS format.</string>
+    <string name="error_verify_null_cert">Signature verification failed.</string>
+    <string name="error_verify_invalid_cert">Error during cryptographic verification of the JWS signature.</string>
+    <string name="error_verify_hostname">Certificate isn\'t issued for the hostname attest.android.com.</string>
+
 </resources>
