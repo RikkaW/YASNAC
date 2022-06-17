@@ -56,6 +56,7 @@ jobs:
           echo 'org.gradle.parallel=true' >> gradle.properties
           echo 'org.gradle.vfs.watch=true' >> gradle.properties
           echo 'org.gradle.jvmargs=-Xmx2048m' >> gradle.properties
+          ./gradlew :app:validateSigningDebug
           ./gradlew :app:assemble
           echo "::set-output name=releaseName::`ls app/build/outputs/apk/release/yasnac-v*-release.apk | awk -F '(/|.apk)' '{print $6}'`"
           echo "::set-output name=debugName::`ls app/build/outputs/apk/debug/yasnac-v*-debug.apk | awk -F '(/|.apk)' '{print $6}'`"

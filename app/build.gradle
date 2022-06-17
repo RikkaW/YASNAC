@@ -16,14 +16,18 @@ android {
     compileSdk 33
     buildToolsVersion '33.0.0'
     namespace "rikka.safetynetchecker"
-    signingConfigs {
-        sign {
-            storeFile properties.getProperty("storeFile") != null ? file(properties.getProperty("storeFile")) : android.signingConfigs.debug.storeFile
-            storePassword properties.getProperty("storePassword", android.signingConfigs.debug.storePassword)
-            keyAlias properties.getProperty("keyAlias", android.signingConfigs.debug.keyAlias)
-            keyPassword properties.getProperty("keyPassword", android.signingConfigs.debug.keyPassword)
+
+    if (properties.getProperty("storeFile") != null) {
+        signingConfigs {
+            debug {
+                storeFile file(properties.getProperty("storeFile"))
+                storePassword properties.getProperty("storePassword")
+                keyAlias properties.getProperty("keyAlias")
+                keyPassword properties.getProperty("keyPassword")
+            }
         }
     }
+
     defaultConfig {
         minSdk 21
         targetSdk 33
@@ -31,22 +35,26 @@ android {
         versionName version_name
         buildConfigField "String[]", "API_KEY", "{\"${properties.getProperty("apiKey", "")}\"}"
         buildConfigField "String", "SAMPLE", "\"${property("sampleResult")}\""
-        def info = KeystoreHelper.getCertificateInfo(
-                signingConfigs.sign.storeType,
-                signingConfigs.sign.storeFile,
-                signingConfigs.sign.storePassword,
-                signingConfigs.sign.keyPassword,
-                signingConfigs.sign.keyAlias
-        )
-        def digest = Base64.encoder.encodeToString(DigestUtils.sha256(info.certificate.encoded))
-        buildConfigField "String", "certificateDigest", "\"$digest\""
+        try {
+            def info = KeystoreHelper.getCertificateInfo(
+                    signingConfigs.debug.storeType,
+                    signingConfigs.debug.storeFile,
+                    signingConfigs.debug.storePassword,
+                    signingConfigs.debug.keyPassword,
+                    signingConfigs.debug.keyAlias
+            )
+            def digest = Base64.encoder.encodeToString(DigestUtils.sha256(info.certificate.encoded))
+            buildConfigField "String", "certificateDigest", "\"$digest\""
+        } catch (Exception ignored) {
+            printf("./gradlew :app:validateSigningDebug")
+        }
     }
     buildTypes {
         debug {
-            signingConfig signingConfigs.sign
+            signingConfig signingConfigs.debug
         }
         release {
-            signingConfig signingConfigs.sign
+            signingConfig signingConfigs.debug
             minifyEnabled true
             shrinkResources true
             proguardFiles 'proguard-rules.pro'
