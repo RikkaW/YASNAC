@@ -33,7 +33,7 @@
     <string name="error_gms_unknown">Google Play 服务未知状态：%1$s。</string>
     <string name="error_gms_provider">Google Play 服务安全提供程序安装失败。</string>
     <string name="error_statement_nonce">一次性令牌不匹配。</string>
-    <string name="error_statement_timeout">响应时间超出允许范围，请重试。</string>
+    <string name="error_statement_timeout">响应时间超出允许范围。这可能是因为您的设备上的时间不准确。</string>
     <string name="error_statement_package_name">应用包名不匹配。</string>
     <string name="error_statement_certificate">应用签名证书不匹配。</string>
     <string name="error_verify_invalid_json">JWS 格式无效。</string>
