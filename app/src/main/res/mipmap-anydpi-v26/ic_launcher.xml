@@ -14,4 +14,17 @@
             </vector>
         </aapt:attr>
     </foreground>
+    <monochrome>
+        <aapt:attr name="android:drawable">
+            <vector
+                android:width="108dp"
+                android:height="108dp"
+                android:viewportWidth="108"
+                android:viewportHeight="108">
+                <path
+                    android:fillColor="@android:color/black"
+                    android:pathData="M54,33 L37.2,39.3l0,12.789c0,10.605 7.161,20.496 16.8,22.911 9.639,-2.415 16.8,-12.306 16.8,-22.911L70.8,39.3ZM51.774,61.434 L44.34,54l2.961,-2.961 4.452,4.452 8.904,-8.904 2.961,2.961z"/>
+            </vector>
+        </aapt:attr>
+    </monochrome>
 </adaptive-icon>
