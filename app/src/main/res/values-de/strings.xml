@@ -22,4 +22,19 @@
     <string name="result">Ergebnis</string>
     <string name="learn_more_button">Mehr erfahren</string>
     <string name="run_test_button">SafetyNet-Attestation ausführen</string>
+    <string name="error_verify_hostname">Das Zertifikat wurde nicht für den Hostnamen attest.android.com ausgestellt.</string>
+    <string name="error_verify_invalid_cert">Fehler bei der kryptografischen Überprüfung der JWS-Signatur.</string>
+    <string name="error_verify_null_cert">Signaturüberprüfung fehlgeschlagen.</string>
+    <string name="error_verify_invalid_json">Ungültiges JWS-Format.</string>
+    <string name="error_statement_certificate">APK-Zertifikat stimmt nicht überein.</string>
+    <string name="error_statement_package_name">Applikations-ID stimmt nicht überein.</string>
+    <string name="error_statement_timeout">Die Antwortzeit der Attestierung liegt außerhalb des zulässigen Bereichs. Dies könnte an einer ungenauen Systemzeit liegen.</string>
+    <string name="error_statement_nonce">Nonce stimmt nicht überein.</string>
+    <string name="error_gms_provider">Installation des GMS-Anbieters fehlgeschlagen.</string>
+    <string name="error_gms_unknown">Unbekanntes Ergebnis %1$s.</string>
+    <string name="error_gms_invalid">Die Echtheit der installierten Version der Google Play-Dienste auf diesem Gerät kann nicht verifiziert werden.</string>
+    <string name="error_gms_disabled">Die installierte Version der Google Play-Dienste auf diesem Gerät wurde deaktiviert.</string>
+    <string name="error_gms_version_update_required">Die installierte Version der Google Play-Dienste ist veraltet.</string>
+    <string name="error_gms_updating">Google Play-Dienste werden auf diesem Gerät derzeit aktualisiert.</string>
+    <string name="error_gms_missing">Google Play-Dienste fehlen auf diesem Gerät.</string>
 </resources>
