@@ -4,6 +4,7 @@ import org.apache.commons.codec.digest.DigestUtils
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'dev.rikka.tools.autoresconfig'
 }
 
 Properties properties = new Properties()
@@ -85,6 +86,12 @@ android {
     lint {
         checkReleaseBuilds false
     }
+}
+
+autoResConfig {
+    generateRes = false
+    generateClass = false
+    generateLocaleConfig = true
 }
 
 android.applicationVariants.all { variant ->

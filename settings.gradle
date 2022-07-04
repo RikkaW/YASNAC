@@ -8,6 +8,7 @@ pluginManagement {
         id 'com.android.application' version '7.2.1'
         id 'com.android.library' version '7.2.1'
         id 'org.jetbrains.kotlin.android' version '1.7.0'
+        id 'dev.rikka.tools.autoresconfig' version '1.2.0'
     }
 }
 dependencyResolutionManagement {
