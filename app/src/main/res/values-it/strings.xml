@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="run_test_button">Esegui l\'attestazione SafetyNet</string>
     <string name="learn_more_button">Per saperne di più</string>
@@ -13,7 +14,6 @@
     <string name="security_patch">Livello delle patch di sicurezza</string>
     <string name="view_json">Visualizza JSON</string>
     <string name="play_services_version">Versione dei Google Play Services</string>
-
     <string name="basic_integrity">Integrità di base</string>
     <string name="cts_profile_match">Corrispondenza del profilo CTS</string>
     <string name="evaluation_type">Tipo di valutazione</string>
@@ -22,5 +22,19 @@
     <string name="timestamp">Timestamp</string>
     <string name="apk_digest">Apk digest</string>
     <string name="advice">Consiglio</string>
-
+    <string name="error_verify_hostname">Il certificato non è stato rilasciato per l\'hostname attest.android.com.</string>
+    <string name="error_verify_invalid_cert">Errore durante la verifica crittografica della firma JWS.</string>
+    <string name="error_verify_null_cert">Verifica della firma fallita.</string>
+    <string name="error_verify_invalid_json">Formato JWS non valido.</string>
+    <string name="error_statement_certificate">Il certificato dell\'apk non corrisponde.</string>
+    <string name="error_statement_package_name">L\'id dell\'applicazione non corrisponde.</string>
+    <string name="error_statement_timeout">Il tempo di risposta dell\'attestazione non rientra nell\'intervallo consentito. Ciò può essere dovuto al fatto che l\'ora del dispositivo è imprecisa.</string>
+    <string name="error_statement_nonce">Il nonce non corrisponde.</string>
+    <string name="error_gms_provider">Impossibile installare il provider GMS.</string>
+    <string name="error_gms_unknown">Risultato sconosciuto %1$s.</string>
+    <string name="error_gms_invalid">La versione di Google Play Services installata su questo dispositivo non è autentica.</string>
+    <string name="error_gms_disabled">La versione installata di Google Play Services è stata disattivata su questo dispositivo.</string>
+    <string name="error_gms_version_update_required">La versione installata di Google Play Services è obsoleta.</string>
+    <string name="error_gms_updating">Google Play Services è attualmente in fase di aggiornamento su questo dispositivo.</string>
+    <string name="error_gms_missing">Google Play Services non è presente su questo dispositivo.</string>
 </resources>
