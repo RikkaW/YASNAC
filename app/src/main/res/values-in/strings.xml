@@ -22,4 +22,19 @@
     <string name="timestamp">Waktu</string>
     <string name="apk_digest">Intisari Apk</string>
     <string name="advice">Saran</string>
+    <string name="error_verify_hostname">Sertifikat tidak dikeluarkan untuk nama host (hostname) attest.android.com.</string>
+    <string name="error_verify_invalid_cert">Kesalahan selama verifikasi kriptografi dari tanda tangan JWS.</string>
+    <string name="error_verify_null_cert">Verifikasi tanda tangan gagal.</string>
+    <string name="error_verify_invalid_json">Bukan format JWS yang valid.</string>
+    <string name="error_statement_certificate">Sertifikat apk tidak cocok.</string>
+    <string name="error_statement_package_name">ID aplikasi tidak cocok.</string>
+    <string name="error_statement_timeout">Waktu respons pengesahan di luar rentang yang diizinkan. Ini mungkin karena waktu di perangkat Anda tidak akurat.</string>
+    <string name="error_statement_nonce">Kode acak (nonce) tidak cocok.</string>
+    <string name="error_gms_provider">Gagal menginstal penyedia GMS.</string>
+    <string name="error_gms_unknown">Hasil tidak diketahui %1$s.</string>
+    <string name="error_gms_invalid">Versi layanan Google Play yang diinstal pada perangkat ini tidak asli.</string>
+    <string name="error_gms_disabled">Versi terinstal dari layanan Google Play telah dinonaktifkan pada perangkat ini.</string>
+    <string name="error_gms_version_update_required">Versi layanan Google Play yang diinstal sudah kedaluwarsa.</string>
+    <string name="error_gms_updating">Layanan Google Play saat ini sedang diperbarui pada perangkat ini.</string>
+    <string name="error_gms_missing">Layanan Google Play tidak ada di perangkat ini.</string>
 </resources>
