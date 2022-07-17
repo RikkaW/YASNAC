@@ -32,12 +32,12 @@
     <string name="error_gms_unknown">Неизвестный результат %1$s.</string>
     <string name="error_gms_provider">Ошибка установки GMS провайдера.</string>
     <string name="error_statement_nonce">Случайный код (nonce) не совпадает.</string>
-    <string name="error_statement_timeout">Время ожидания ответа проверки аттестации истекло. Возможно в устройстве выставлено некорректное время?</string>
+    <string name="error_statement_timeout">Время ожидания ответа проверки аттестации истекло. Проверьте корректность выставленного времени в устройстве и попробуйте позже.</string>
     <string name="error_statement_package_name">ID приложения не совпадает.</string>
     <string name="error_statement_certificate">Сертификат APK не совпадает.</string>
-    <string name="error_verify_invalid_json">Недействительный формат JWS.</string>
-    <string name="error_verify_null_cert">Ошибка проверки подписи.</string>
-    <string name="error_verify_invalid_cert">Ошибка при криптографической проверке подписи JWS.</string>
-    <string name="error_verify_hostname">Сертификат не выдан для домена attest.android.com.</string>
+    <string name="error_verify_invalid_json">JWS формат недействителен.</string>
+    <string name="error_verify_null_cert">JWS подпись недействительна.</string>
+    <string name="error_verify_invalid_cert">Ошибка проверки подписи JWS.</string>
+    <string name="error_verify_hostname">Ошибка сертификата подписи JWS.</string>
 
 </resources>
