@@ -23,4 +23,20 @@
     <string name="apk_digest">Resumen Apk</string>
     <string name="advice">Aviso</string>
 
+    <string name="error_gms_missing">Faltan los servicios de Google Play en este dispositivo.</string>
+    <string name="error_gms_updating">Los servicios de Google Play se está actualizando actualmente en este dispositivo.</string>
+    <string name="error_gms_version_update_required">La versión instalada de los servicios de Google Play está desactualizada.</string>
+    <string name="error_gms_disabled">La versión instalada de los servicios de Google Play se ha inhabilitado en este dispositivo.</string>
+    <string name="error_gms_invalid">La versión de los servicios de Google Play instalada en este dispositivo no es auténtica.</string>
+    <string name="error_gms_unknown">Resultado desconocido %1$s.</string>
+    <string name="error_gms_provider">Error al instalar el proveedor GMS.</string>
+    <string name="error_statement_nonce">Nonce no coincide.</string>
+    <string name="error_statement_timeout">El tiempo de respuesta de la atestación está fuera del rango permitido. Vuelva a intentarlo más tarde o compruebe si la hora del dispositivo está configurada correctamente.</string>
+    <string name="error_statement_package_name">El ID de la aplicación no coincide.</string>
+    <string name="error_statement_certificate">El certificado apk no coincide.</string>
+    <string name="error_verify_invalid_json">El formato JWS no es válido.</string>
+    <string name="error_verify_null_cert">La firma JWS no es válida.</string>
+    <string name="error_verify_invalid_cert">Excepción de verificación de firma JWS.</string>
+    <string name="error_verify_hostname">Error de certificado de firma JWS.</string>
+
 </resources>
