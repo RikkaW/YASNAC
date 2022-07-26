@@ -20,4 +20,21 @@
     <string name="result">نتيجة</string>
     <string name="learn_more_button">تعرف على المزيد</string>
     <string name="run_test_button">قم بفحص شهادة SafetyNet</string>
+    <string name="basic">BASIC</string>
+    <string name="hardware_backed">HARDWARE_BACKED</string>
+    <string name="error_verify_hostname">خطأ في شهادة توقيع JWS.</string>
+    <string name="error_verify_invalid_cert">استثناء التحقق من توقيع JWS.</string>
+    <string name="error_verify_null_cert">توقيع JWS غير صالح.</string>
+    <string name="error_verify_invalid_json">تنسيق JWS غير صالح.</string>
+    <string name="error_statement_certificate">شهادة APK غير متطابقة.</string>
+    <string name="error_statement_package_name">معرف التطبيق لا يتطابق.</string>
+    <string name="error_statement_timeout">وقت استجابة التصديق خارج النطاق المسموح به. يرجى المحاولة مرة أخرى لاحقًا أو التحقق من ضبط وقت الجهاز بشكل صحيح.</string>
+    <string name="error_statement_nonce">نونسي لا يتطابق.</string>
+    <string name="error_gms_provider">فشل تثبيت موفر GMS.</string>
+    <string name="error_gms_unknown">نتيجة غير معروفة %1$s.</string>
+    <string name="error_gms_invalid">إصدار خدمات Google Play المثبت على هذا الجهاز غير أصلي.</string>
+    <string name="error_gms_disabled">تم تعطيل الإصدار المثبت من خدمات Google Play على هذا الجهاز.</string>
+    <string name="error_gms_version_update_required">إصدار خدمات Google Play المثبت قديم.</string>
+    <string name="error_gms_updating">يتم حاليًا تحديث خدمة Google Play على هذا الجهاز.</string>
+    <string name="error_gms_missing">خدمات Google Play مفقودة على هذا الجهاز.</string>
 </resources>
