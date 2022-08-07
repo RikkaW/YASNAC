@@ -1,19 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="run_test_button">SafetyNetの認証を実行</string>
     <string name="learn_more_button">詳細を表示</string>
     <string name="result">結果</string>
-    <string name="pass">パス</string>
+    <string name="pass">成功</string>
     <string name="fail">失敗</string>
     <string name="please_wait">お待ちください…</string>
     <string name="something_went_wrong">何かがおかしいようです</string>
-    <string name="api_error">Google PlayサービスAPIエラー</string>
-    <string name="device">デバイス</string>
+    <string name="api_error">Google Play開発者サービスのAPIエラー</string>
+    <string name="device">端末</string>
     <string name="model">モデル</string>
     <string name="android_version">Androidのバージョン</string>
     <string name="security_patch">セキュリティパッチレベル</string>
     <string name="view_json">JSONを表示</string>
-    <string name="play_services_version">Google Playサービスのバージョン</string>
-
+    <string name="play_services_version">Google Play開発者サービスのバージョン</string>
     <string name="basic_integrity">基本的な整合性</string>
     <string name="cts_profile_match">CTSプロファイルマッチ</string>
     <string name="evaluation_type">評価の種類</string>
@@ -22,5 +22,19 @@
     <string name="timestamp">タイムスタンプ</string>
     <string name="apk_digest">APKダイジェスト</string>
     <string name="advice">アドバイス</string>
-
+    <string name="error_gms_unknown">不明な結果 %1$s 。</string>
+    <string name="error_gms_missing">この端末にはGoogle Play開発者サービスがありません。</string>
+    <string name="error_verify_hostname">JWS の署名証明書エラー。</string>
+    <string name="error_verify_invalid_cert">JWSの署名検証の例外。</string>
+    <string name="error_verify_null_cert">JWS の署名が無効です。</string>
+    <string name="error_verify_invalid_json">JWSフォーマットが無効です。</string>
+    <string name="error_statement_certificate">APKの署名が一致しません。</string>
+    <string name="error_statement_package_name">アプリIDが一致しません。</string>
+    <string name="error_statement_timeout">証明書の応答時間が許容範囲を超えています。後でもう一度試すか､ 端末の時刻設定が正しいかどうかを確認してください。</string>
+    <string name="error_statement_nonce">Nonceが一致しません。</string>
+    <string name="error_gms_provider">GMS プロバイダーのインストールに失敗しました。</string>
+    <string name="error_gms_invalid">この端末にインストールされている Google Play開発者サービスのバージョンは､ 認証されていません。</string>
+    <string name="error_gms_disabled">インストールされている Google Play開発者サービスのバージョンは､ この端末では無効になっています。</string>
+    <string name="error_gms_version_update_required">インストールされている Google Play開発者サービスのバージョンが古くなっています。</string>
+    <string name="error_gms_updating">現在 Google Play開発者サービスは､ この端末で更新中です。</string>
 </resources>
