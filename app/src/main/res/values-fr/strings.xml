@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name_short" translatable="false">YASNAC</string>
+    <string name="app_name" translatable="false">Yet Another SafetyNet Attestation Checker</string>
+    <string name="run_test_button">Lancer l'attestation SafetyNet</string>
+    <string name="learn_more_button">En savoir plus</string>
+    <string name="result">Résultat</string>
+    <string name="pass">Succès</string>
+    <string name="fail">Échec</string>
+    <string name="please_wait">Veuillez patienter…</string>
+    <string name="something_went_wrong">Une erreur est survenue</string>
+    <string name="api_error">Erreur de l'API des Services Google Play</string>
+    <string name="device">Appareil</string>
+    <string name="model">Modèle</string>
+    <string name="android_version">Version d'Android</string>
+    <string name="security_patch">Mise à jour de sécurité</string>
+    <string name="view_json">Voir le JSON</string>
+    <string name="play_services_version">Version des Services Google Play</string>
+
+    <string name="basic_integrity">Contrôle d'intégrité de base</string>
+    <string name="cts_profile_match">Correspondance du profil CTS</string>
+    <string name="evaluation_type">Type d'évaluation</string>
+    <string name="hardware_backed">MATÉRIELLE</string>
+    <string name="basic">BASIQUE</string>
+    <string name="timestamp">Date</string>
+    <string name="apk_digest">Hachage APK</string>
+    <string name="advice">Suggestion</string>
+
+    <string name="error_gms_missing">Les Services Google Play ne sont pas disponibles sur cet appareil.</string>
+    <string name="error_gms_updating">Une mise à jour des Services Google Play est en cours sur cet appareil.</string>
+    <string name="error_gms_version_update_required">La version installée des Services Google Play est obsolète.</string>
+    <string name="error_gms_disabled">Les Services Google Play sont désactivés sur cet appareil.</string>
+    <string name="error_gms_invalid">La version des Services Google Play installée sur cet appareil n'est pas authentique.</string>
+    <string name="error_gms_unknown">Erreur inconnue %1$s.</string>
+    <string name="error_gms_provider">Échec de l'installation du fournisseur GMS.</string>
+    <string name="error_statement_nonce">Le jeton d'authentification passé à l'API ne correspond pas.</string>
+    <string name="error_statement_timeout">L'API a mis trop de temps à répondre. Merci de réessayer plus tard ou vérifiez si l'heure du système est correctement configurée.</string>
+    <string name="error_statement_package_name">L'ID de l'application ne correspond pas.</string>
+    <string name="error_statement_certificate">Le certificat APK ne correspond pas.</string>
+    <string name="error_verify_invalid_json">Le format JWS est invalide.</string>
+    <string name="error_verify_null_cert">La signature JWS est invalide.</string>
+    <string name="error_verify_invalid_cert">Erreur de vérification de la signature JWS.</string>
+    <string name="error_verify_hostname">Erreur dans le certificat de signature JWS.</string>
+
+</resources>
