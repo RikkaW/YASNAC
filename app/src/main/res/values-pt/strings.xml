@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="apk_digest">Assinatura do apk</string>
+    <string name="apk_digest">Assinatura para o apk</string>
     <string name="advice">Conselho</string>
     <string name="timestamp">Data de execução</string>
     <string name="basic">BÁSICO</string>
@@ -22,4 +22,19 @@
     <string name="result">Resultado</string>
     <string name="learn_more_button">Ler mais</string>
     <string name="run_test_button">Executar o Atestado SafetyNet</string>
+    <string name="error_statement_nonce">Código nonce não corresponde.</string>
+    <string name="error_verify_hostname">Erro no certificado de assinatura JWS.</string>
+    <string name="error_verify_invalid_cert">Exceção de verificação de assinatura JWS.</string>
+    <string name="error_verify_null_cert">A assinatura JWS é inválida.</string>
+    <string name="error_verify_invalid_json">O formato JWS não é válido.</string>
+    <string name="error_statement_certificate">O certificado do apk não corresponde.</string>
+    <string name="error_statement_package_name">O ID do aplicativo não corresponde.</string>
+    <string name="error_statement_timeout">Tempo de resposta do teste fora do intervalo permitido. Tente novamente mais tarde ou verifique se a hora do dispositivo está definida corretamente.</string>
+    <string name="error_gms_provider">Falha ao instalar o provedor GMS.</string>
+    <string name="error_gms_unknown">Resultado desconhecido %1$s.</string>
+    <string name="error_gms_invalid">A versão dos serviços do Google Play instalada neste dispositivo não é autêntica.</string>
+    <string name="error_gms_disabled">A versão instalada do Google Play Services foi desativada neste dispositivo.</string>
+    <string name="error_gms_version_update_required">A versão instalada dos serviços do Google Play está desatualizada.</string>
+    <string name="error_gms_updating">O serviço Google Play está sendo atualizado neste dispositivo.</string>
+    <string name="error_gms_missing">Os serviços do Google Play estão ausentes neste dispositivo.</string>
 </resources>
