@@ -1,2 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="error_verify_hostname">Eroare de certificat de semnătură JWS.</string>
+    <string name="error_verify_invalid_cert">Excepție de verificare a semnăturii JWS.</string>
+    <string name="error_verify_null_cert">Semnătura JWS este nevalidă.</string>
+    <string name="error_verify_invalid_json">Formatul JWS nu este valid.</string>
+    <string name="error_statement_certificate">Certificatul Apk nu se potrivește.</string>
+    <string name="error_statement_package_name">Id-ul aplicației nu se potrivește.</string>
+    <string name="error_statement_timeout">Timpul de răspuns pentru atestare expirat. Încercați din nou mai târziu sau verificați dacă ora dispozitivului este setată corect.</string>
+    <string name="error_statement_nonce">Nu se potrivește.</string>
+    <string name="error_gms_provider">Nu s-a instalat furnizorul GMS.</string>
+    <string name="error_gms_unknown">Rezultat necunoscut %1$s.</string>
+    <string name="error_gms_invalid">Versiunea serviciilor Google Play instalată pe acest dispozitiv nu este autentică.</string>
+    <string name="error_gms_disabled">Serviciile Google Play au fost dezactivate pe acest dispozitiv.</string>
+    <string name="error_gms_version_update_required">Versiunea instalată a Serviciilor Google Play este învechită.</string>
+    <string name="error_gms_updating">Serviciile Google Play se actualizează în prezent pe acest dispozitiv.</string>
+    <string name="error_gms_missing">Serviciile Google Play lipsesc pe acest dispozitiv.</string>
+    <string name="advice">Sfat</string>
+    <string name="apk_digest">Apk digest</string>
+    <string name="timestamp">Timpul</string>
+    <string name="basic">BASIC</string>
+    <string name="hardware_backed">HARDWARE_BACKED</string>
+    <string name="evaluation_type">Tipul de evaluare</string>
+    <string name="cts_profile_match">Potrivire profil CTS</string>
+    <string name="basic_integrity">Integritate de bază</string>
+    <string name="play_services_version">Versiune Servicii Google Play</string>
+    <string name="view_json">Vizualizare JSON</string>
+    <string name="security_patch">Nivel corecție de securitate</string>
+    <string name="android_version">Versiune Android</string>
+    <string name="model">Model</string>
+    <string name="device">Dispozitiv</string>
+    <string name="api_error">Eroare API Servicii Google Play</string>
+    <string name="something_went_wrong">Ceva n-a mers bine</string>
+    <string name="please_wait">Așteptați…</string>
+    <string name="fail">Eșuat</string>
+    <string name="pass">Trecut</string>
+    <string name="result">Rezultat</string>
+    <string name="learn_more_button">Află mai multe</string>
+    <string name="run_test_button">Rulați atestarea SafetyNet</string>
+</resources>
