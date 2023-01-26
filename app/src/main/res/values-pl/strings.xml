@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="run_test_button">Uruchom sprawdzanie SafetyNet</string>
     <string name="learn_more_button">Dowiedz się więcej</string>
@@ -12,4 +13,9 @@
     <string name="android_version">Wersja Androida</string>
     <string name="security_patch">Poziom poprawek zabezpieczeń</string>
     <string name="view_json">Pokaż JSON</string>
+    <string name="basic">BASIC</string>
+    <string name="hardware_backed">HARDWARE_BACKED</string>
+    <string name="evaluation_type">Typ ewaluacji</string>
+    <string name="cts_profile_match">Zgodność z profilem CTS</string>
+    <string name="play_services_version">Wersja Usług Google Play</string>
 </resources>
