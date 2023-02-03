@@ -1,2 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="cts_profile_match">Pagkakatugma sa CTS profile</string>
+    <string name="error_verify_hostname">Problema sa sertipiko ng pirma ng JWS.</string>
+    <string name="error_verify_invalid_cert">Problema sa beripikasyon ng pirma ng JWS.</string>
+    <string name="error_verify_null_cert">Hindi wasto ang pirma ng JWS.</string>
+    <string name="error_verify_invalid_json">Hindi wasto ang format ng JWS.</string>
+    <string name="error_statement_certificate">Hindi tugma ang sertipiko ng APK.</string>
+    <string name="error_statement_package_name">Hindi tugma ang ID ng aplikasyon.</string>
+    <string name="error_statement_timeout">Nasa labas ng pinapayagang saklaw ang oras ng tugon ng pagsusuri. Pakisubukan na lang ulit mamaya o tingnan kung maayos ba ang oras na naitakda sa device.</string>
+    <string name="error_statement_nonce">Hindi tugma ang nonce.</string>
+    <string name="error_gms_provider">Nagkaproblema sa pag-install ng GMS provider.</string>
+    <string name="error_gms_unknown">Hindi alam na resulta %1$s.</string>
+    <string name="error_gms_invalid">Peke ang Mga Serbisyo ng Google Play sa device na ito.</string>
+    <string name="error_gms_disabled">Naka-disable ang Mga Serbisyo ng Google Play sa device na ito.</string>
+    <string name="error_gms_version_update_required">Sobrang luma na ang bersyon ng Mga Serbisyo ng Google Play na naka-install sa device na ito.</string>
+    <string name="error_gms_updating">Kasalukuyang nag-a-update ang Mga Serbisyo ng Google Play sa device na ito.</string>
+    <string name="error_gms_missing">Walang Mga Serbisyo ng Google Play ang device na ito.</string>
+    <string name="advice">Payo</string>
+    <string name="apk_digest">Pamberipika ng APK</string>
+    <string name="timestamp">Oras</string>
+    <string name="basic">BASIC</string>
+    <string name="hardware_backed">HARDWARE_BACKED</string>
+    <string name="evaluation_type">Uri ng Pagsusuri</string>
+    <string name="basic_integrity">Basic na integridad</string>
+    <string name="play_services_version">Bersyon ng Mga Serbisyo ng Google Play</string>
+    <string name="view_json">Tingnan ang JSON</string>
+    <string name="security_patch">Lebel ng tapal sa seguridad</string>
+    <string name="android_version">Bersyon ng Android</string>
+    <string name="model">Modelo</string>
+    <string name="device">Device</string>
+    <string name="api_error">Problema sa API ng Mga Serbisyo ng Google Play</string>
+    <string name="something_went_wrong">Nagkaproblema</string>
+    <string name="please_wait">Mangyaring maghintay…</string>
+    <string name="fail">Bagsak</string>
+    <string name="pass">Pasado</string>
+    <string name="result">Resulta</string>
+    <string name="learn_more_button">Matuto pa</string>
+    <string name="run_test_button">Patakbuhin ang Pagpapatunay ng SafetyNet</string>
+</resources>
