@@ -1,2 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="advice">คำแนะนำ</string>
+    <string name="apk_digest">การแยกย่อย Apk</string>
+    <string name="cts_profile_match">การจับคู่โปรไฟล์ CTS</string>
+    <string name="basic_integrity">ความสมบูรณ์ขั้นพื้นฐาน</string>
+    <string name="basic">BASIC</string>
+    <string name="hardware_backed">HARDWARE_BACKED</string>
+    <string name="error_verify_hostname">ใบรับรองลายเซ็น JWS มีข้อผิดพลาด</string>
+    <string name="error_verify_invalid_cert">ข้อยกเว้นการตรวจสอบลายเซ็น JWS</string>
+    <string name="error_verify_null_cert">ลายเซ็น JWS ไม่ถูกต้อง</string>
+    <string name="error_verify_invalid_json">รูปแบบ JWS ไม่ถูกต้อง</string>
+    <string name="error_statement_certificate">ใบรับรอง Apk ไม่ตรงกัน</string>
+    <string name="error_statement_package_name">รหัสแอปพลิเคชันไม่ตรงกัน</string>
+    <string name="error_statement_timeout">เวลาตอบกลับการรับรองนานเกินไป โปรดลองอีกครั้งในภายหลังหรือตรวจสอบว่าตั้งเวลาอุปกรณ์ถูกต้องหรือไม่</string>
+    <string name="error_statement_nonce">Nonce ไม่ตรงกัน</string>
+    <string name="error_gms_provider">ติดตั้งผู้ให้บริการ GMS ไม่สำเร็จ</string>
+    <string name="error_gms_unknown">ผลลัพธ์ที่ไม่รู้จัก %1$s</string>
+    <string name="error_gms_invalid">เวอร์ชันของบริการ Google Play ที่ติดตั้งบนอุปกรณ์นี้ไม่ใช่ของแท้</string>
+    <string name="error_gms_disabled">บริการ Google Play ถูกปิดใช้งานบนอุปกรณ์นี้</string>
+    <string name="error_gms_version_update_required">บริการ Google Play เวอร์ชันที่ติดตั้งล้าสมัย</string>
+    <string name="error_gms_updating">บริการ Google Play กำลังอัปเดตบนอุปกรณ์นี้</string>
+    <string name="error_gms_missing">ไม่พบบริการ Google Play บนอุปกรณ์ของคุณ</string>
+    <string name="timestamp">เวลา</string>
+    <string name="evaluation_type">ประเภทการประเมินผล</string>
+    <string name="play_services_version">เวอร์ชั่น บริการ Google Play</string>
+    <string name="view_json">ดู JSON</string>
+    <string name="security_patch">แพตช์ความปลอดภัย</string>
+    <string name="android_version">เวอร์ชั่น Android</string>
+    <string name="model">โมเดล</string>
+    <string name="device">อุปกรณ์</string>
+    <string name="api_error">บริการ Google Play API ผิดพลาด</string>
+    <string name="something_went_wrong">มีบางอย่างผิดพลาด</string>
+    <string name="please_wait">รอสักครู่…</string>
+    <string name="fail">ผิดพลาด</string>
+    <string name="pass">ผ่าน</string>
+    <string name="result">ผลลัพธ์</string>
+    <string name="learn_more_button">เรียนรู้เพิ่มเติม</string>
+    <string name="run_test_button">กดเพื่อ เช็ค Safetynet</string>
+</resources>
