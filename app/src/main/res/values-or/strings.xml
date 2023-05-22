@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="android_version">ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣ</string>
+    <string name="something_went_wrong">କିଛି ଗଡ଼ବଡ଼ ଦେଖାଯାଇଛି</string>
+    <string name="device">ଡିଵାଇସ୍</string>
+    <string name="learn_more_button">ଅଧିକ ଜାଣନ୍ତୁ</string>
+</resources>
