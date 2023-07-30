@@ -1,27 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="run_test_button">執行 SafetyNet 認證</string>
-    <string name="learn_more_button">瞭解更多</string>
+    <string name="run_test_button">執行 SafetyNet 證明</string>
+    <string name="learn_more_button">深入瞭解</string>
     <string name="result">結果</string>
-    <string name="pass">透過</string>
+    <string name="pass">通過</string>
     <string name="fail">失敗</string>
-    <string name="please_wait">請等待…</string>
+    <string name="please_wait">請等候…</string>
     <string name="something_went_wrong">出了些問題</string>
     <string name="api_error">Google Play 服務 API 錯誤</string>
     <string name="device">裝置</string>
     <string name="model">型號</string>
     <string name="android_version">Android 版本</string>
-    <string name="security_patch">安全補丁級別</string>
+    <string name="security_patch">安全性修補程式等級</string>
     <string name="view_json">檢視 JSON</string>
     <string name="play_services_version">Google Play 服務版本</string>
-
-    <string name="basic_integrity">滿足基本完整性</string>
-    <string name="cts_profile_match">匹配 CTS 配置檔案</string>
+    <string name="basic_integrity">基本完整性</string>
+    <string name="cts_profile_match">CTS 設定檔相符</string>
     <string name="evaluation_type">評估型別</string>
     <string name="hardware_backed">硬體支援</string>
     <string name="basic">基本</string>
-    <string name="timestamp">時間戳</string>
+    <string name="timestamp">時間戳記</string>
     <string name="apk_digest">APK 摘要</string>
     <string name="advice">建議</string>
-
+    <string name="error_verify_hostname">JWS 簽章憑證錯誤。</string>
+    <string name="error_verify_invalid_cert">JWS 簽章驗證例外狀況。</string>
+    <string name="error_verify_null_cert">JWS 簽章無效。</string>
+    <string name="error_verify_invalid_json">JWS 格式無效。</string>
+    <string name="error_statement_certificate">APK 憑證不相符。</string>
+    <string name="error_statement_package_name">應用程式 ID 不相符。</string>
+    <string name="error_statement_timeout">驗證回應時間超出允許的範圍。請稍候再試一次，或檢查裝置時間是否正確。</string>
+    <string name="error_statement_nonce">Nonce 不相符。</string>
+    <string name="error_gms_provider">無法安裝 GMS 提供者。</string>
+    <string name="error_gms_unknown">未知結果 %1$s。</string>
+    <string name="error_gms_invalid">此裝置上安裝的 Google Play 服務未經驗證。</string>
+    <string name="error_gms_disabled">此裝置上安裝的 Google Play 服務已被停用。</string>
+    <string name="error_gms_version_update_required">此裝置上安裝的 Google Play 服務已過時。</string>
+    <string name="error_gms_updating">此裝置上的 Google Play 服務目前正在更新。</string>
+    <string name="error_gms_missing">此裝置沒有 Google Play 服務。</string>
 </resources>
