@@ -22,4 +22,19 @@
     <string name="timestamp">Dấu thời gian</string>
     <string name="apk_digest">Thông báo Apk</string>
     <string name="advice">Lời khuyên</string>
+    <string name="error_verify_hostname">Lỗi chứng chỉ chữ ký JWS.</string>
+    <string name="error_verify_invalid_cert">Ngoại lệ xác minh chữ ký JWS.</string>
+    <string name="error_verify_null_cert">Chữ ký JWS không hợp lệ.</string>
+    <string name="error_verify_invalid_json">Định dạng JWS không hợp lệ.</string>
+    <string name="error_statement_certificate">Chứng chỉ Apk không khớp.</string>
+    <string name="error_statement_package_name">ID ứng dụng không khớp.</string>
+    <string name="error_statement_timeout">Thời gian phản hồi chứng thực nằm ngoài phạm vi cho phép. Vui lòng thử lại sau hoặc kiểm tra xem thời gian trên thiết bị đã được đặt chính xác chưa.</string>
+    <string name="error_statement_nonce">Nonce không khớp.</string>
+    <string name="error_gms_provider">Không cài đặt được nhà cung cấp GMS.</string>
+    <string name="error_gms_unknown">Kết quả không xác định %1$s.</string>
+    <string name="error_gms_invalid">Phiên bản dịch vụ Google Play được cài đặt trên thiết bị này không xác thực.</string>
+    <string name="error_gms_disabled">Phiên bản được cài đặt của dịch vụ Google Play đã bị tắt trên thiết bị này.</string>
+    <string name="error_gms_version_update_required">Phiên bản được cài đặt của dịch vụ Google Play đã lỗi thời.</string>
+    <string name="error_gms_updating">Dịch vụ Google Play hiện đang được cập nhật trên thiết bị này.</string>
+    <string name="error_gms_missing">Dịch vụ Google Play bị thiếu trên thiết bị này.</string>
 </resources>
