@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="run_test_button">Atestar SafetyNet</string>
-    <string name="learn_more_button">Aprender mais</string>
+    <string name="run_test_button">Executar atestado SafetyNet</string>
+    <string name="learn_more_button">Saber mais</string>
     <string name="result">Resultado</string>
     <string name="pass">Passou</string>
-    <string name="fail">Falha</string>
-    <string name="please_wait">Favor aguarde…</string>
+    <string name="fail">Falhou</string>
+    <string name="please_wait">Por favor, aguarde…</string>
     <string name="something_went_wrong">Algo deu errado</string>
     <string name="api_error">Erro na API do Google Play Services</string>
     <string name="device">Dispositivo</string>
@@ -15,11 +15,26 @@
     <string name="view_json">Ver JSON</string>
     <string name="basic_integrity">Integridade básica</string>
     <string name="play_services_version">Versão do Google Play Services</string>
-    <string name="apk_digest">APK digerido</string>
-    <string name="advice">Dispositivo</string>
-    <string name="timestamp">Carimbo de data e hora</string>
+    <string name="apk_digest">Resumo do apk</string>
+    <string name="advice">Conselho</string>
+    <string name="timestamp">Data e hora</string>
     <string name="basic">BASIC</string>
     <string name="hardware_backed">HARDWARE_BACKED</string>
     <string name="evaluation_type">Tipo de avaliação</string>
     <string name="cts_profile_match">Correspondência de perfil CTS</string>
+    <string name="error_verify_hostname">Erro de certificado de assinatura JWS.</string>
+    <string name="error_verify_invalid_cert">Exceção de verificação de assinatura JWS.</string>
+    <string name="error_verify_null_cert">A assinatura JWS é inválida.</string>
+    <string name="error_verify_invalid_json">O formato JWS não é válido.</string>
+    <string name="error_statement_certificate">O certificado do APK não corresponde.</string>
+    <string name="error_statement_package_name">O ID do app não corresponde.</string>
+    <string name="error_statement_timeout">Tempo de resposta do atestado fora do intervalo permitido. Por favor, tente novamente mais tarde ou verifique se a hora do dispositivo está definida corretamente.</string>
+    <string name="error_statement_nonce">Nonce não corresponde.</string>
+    <string name="error_gms_provider">Falha ao instalar o provedor GMS.</string>
+    <string name="error_gms_unknown">Resultado desconhecido %1$s.</string>
+    <string name="error_gms_invalid">A versão do Google Play Services instalada neste dispositivo não é autêntica.</string>
+    <string name="error_gms_disabled">A versão instalada do Google Play Services foi desativada neste dispositivo.</string>
+    <string name="error_gms_version_update_required">A versão instalada do Google Play Services está desatualizada.</string>
+    <string name="error_gms_updating">O Google Play service está sendo atualizado neste dispositivo.</string>
+    <string name="error_gms_missing">O Google Play Services está ausente neste dispositivo.</string>
 </resources>
